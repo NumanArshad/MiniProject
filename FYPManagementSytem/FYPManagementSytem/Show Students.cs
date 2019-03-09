@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace FYPManagementSytem
 {
-    public partial class Form1 : Form
+    public partial class Show_Students : Form
     {
-        public Form1()
+        public Show_Students()
         {
             InitializeComponent();
+        }
+
+        private void picBxAddNew_Click(object sender, EventArgs e)
+        {
+            Add_Student add_new =new  Add_Student();
+            this.Hide();
+            add_new.Show();
         }
     }
 }

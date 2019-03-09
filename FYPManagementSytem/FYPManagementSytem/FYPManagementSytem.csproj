@@ -46,14 +46,89 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Add Project.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Add Project.Designer.cs">
+      <DependentUpon>Add Project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Student.Designer.cs">
+      <DependentUpon>Add Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Advisors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Advisors.Designer.cs">
+      <DependentUpon>Manage Advisors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Group Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Group Project.Designer.cs">
+      <DependentUpon>Manage Group Project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Project  Advisors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Project  Advisors.Designer.cs">
+      <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Show Student Groups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show Student Groups.Designer.cs">
+      <DependentUpon>Show Student Groups.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Make Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Make Group.Designer.cs">
+      <DependentUpon>Make Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Show Projects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show Projects.Designer.cs">
+      <DependentUpon>Show Projects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Show Students.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show Students.Designer.cs">
+      <DependentUpon>Show Students.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Add Project.resx">
+      <DependentUpon>Add Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add Student.resx">
+      <DependentUpon>Add Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Advisors.resx">
+      <DependentUpon>Manage Advisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Group Project.resx">
+      <DependentUpon>Manage Group Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Project  Advisors.resx">
+      <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show Student Groups.resx">
+      <DependentUpon>Show Student Groups.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +137,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Make Group.resx">
+      <DependentUpon>Make Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show Projects.resx">
+      <DependentUpon>Show Projects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show Students.resx">
+      <DependentUpon>Show Students.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_plus-add-more-detail_2075830.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_plus-sign_173078 %283%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
