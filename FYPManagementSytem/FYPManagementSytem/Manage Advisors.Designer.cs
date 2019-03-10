@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.advisorsGridView = new System.Windows.Forms.DataGridView();
             this.cmdSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbBxDesignation = new System.Windows.Forms.ComboBox();
             this.txtBxSalary = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
+            this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.advisorTableAdapter = new FYPManagementSytem.ProjectADataSetTableAdapters.AdvisorTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // advisorsGridView
             // 
+            this.advisorsGridView.AutoGenerateColumns = false;
             this.advisorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advisorsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.designationDataGridViewTextBoxColumn,
+            this.salaryDataGridViewTextBoxColumn});
+            this.advisorsGridView.DataSource = this.advisorBindingSource;
             this.advisorsGridView.Location = new System.Drawing.Point(200, 67);
             this.advisorsGridView.Name = "advisorsGridView";
             this.advisorsGridView.Size = new System.Drawing.Size(444, 150);
@@ -55,6 +70,7 @@
             this.cmdSave.TabIndex = 22;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = false;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // label8
             // 
@@ -68,9 +84,6 @@
             // cmbBxDesignation
             // 
             this.cmbBxDesignation.FormattingEnabled = true;
-            this.cmbBxDesignation.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
             this.cmbBxDesignation.Location = new System.Drawing.Point(85, 78);
             this.cmbBxDesignation.Name = "cmbBxDesignation";
             this.cmbBxDesignation.Size = new System.Drawing.Size(100, 21);
@@ -92,6 +105,38 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Salary";
             // 
+            // projectADataSet
+            // 
+            this.projectADataSet.DataSetName = "ProjectADataSet";
+            this.projectADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // advisorBindingSource
+            // 
+            this.advisorBindingSource.DataMember = "Advisor";
+            this.advisorBindingSource.DataSource = this.projectADataSet;
+            // 
+            // advisorTableAdapter
+            // 
+            this.advisorTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "Designation";
+            this.designationDataGridViewTextBoxColumn.HeaderText = "Designation";
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            // 
             // Manage_Advisors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,7 +151,10 @@
             this.Controls.Add(this.advisorsGridView);
             this.Name = "Manage_Advisors";
             this.Text = "Manage Advisors";
+            this.Load += new System.EventHandler(this.Manage_Advisors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +168,11 @@
         private System.Windows.Forms.ComboBox cmbBxDesignation;
         private System.Windows.Forms.TextBox txtBxSalary;
         private System.Windows.Forms.Label label1;
+        private ProjectADataSet projectADataSet;
+        private System.Windows.Forms.BindingSource advisorBindingSource;
+        private ProjectADataSetTableAdapters.AdvisorTableAdapter advisorTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
     }
 }

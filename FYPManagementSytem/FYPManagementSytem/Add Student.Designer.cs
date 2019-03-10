@@ -141,7 +141,7 @@
             this.cmbBxGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cmbBxGender.Location = new System.Drawing.Point(217, 272);
+            this.cmbBxGender.Location = new System.Drawing.Point(217, 264);
             this.cmbBxGender.Name = "cmbBxGender";
             this.cmbBxGender.Size = new System.Drawing.Size(100, 21);
             this.cmbBxGender.TabIndex = 2;
@@ -211,6 +211,7 @@
             this.Controls.Add(this.txtBxReg);
             this.Name = "Add_Student";
             this.Text = "Add Student";
+            this.Load += new System.EventHandler(this.Add_Student_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

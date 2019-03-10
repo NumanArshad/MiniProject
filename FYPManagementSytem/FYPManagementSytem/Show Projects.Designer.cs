@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.projectsGridView1 = new System.Windows.Forms.DataGridView();
+            this.projectsGridView = new System.Windows.Forms.DataGridView();
             this.picBxAddNew = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.projectsGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.SuspendLayout();
             // 
-            // projectsGridView1
+            // projectsGridView
             // 
-            this.projectsGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.projectsGridView1.Location = new System.Drawing.Point(73, 110);
-            this.projectsGridView1.Name = "projectsGridView1";
-            this.projectsGridView1.Size = new System.Drawing.Size(719, 192);
-            this.projectsGridView1.TabIndex = 2;
+            this.projectsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.projectsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.projectsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.projectsGridView.Location = new System.Drawing.Point(0, 119);
+            this.projectsGridView.Name = "projectsGridView";
+            this.projectsGridView.Size = new System.Drawing.Size(880, 235);
+            this.projectsGridView.TabIndex = 2;
             // 
             // picBxAddNew
             // 
@@ -51,6 +53,7 @@
             this.picBxAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picBxAddNew.TabIndex = 3;
             this.picBxAddNew.TabStop = false;
+            this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
             // 
             // Show_Projects
             // 
@@ -59,18 +62,18 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(880, 354);
             this.Controls.Add(this.picBxAddNew);
-            this.Controls.Add(this.projectsGridView1);
+            this.Controls.Add(this.projectsGridView);
             this.Name = "Show_Projects";
             this.Text = "Show Projects";
             this.Load += new System.EventHandler(this.Show_Projects_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.projectsGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView projectsGridView1;
+        private System.Windows.Forms.DataGridView projectsGridView;
         private System.Windows.Forms.PictureBox picBxAddNew;
     }
 }

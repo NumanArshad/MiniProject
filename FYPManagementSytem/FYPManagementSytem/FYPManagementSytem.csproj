@@ -64,6 +64,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseConnection.cs" />
     <Compile Include="Manage Advisors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,11 @@
     </Compile>
     <Compile Include="Manage Project  Advisors.Designer.cs">
       <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Show Student Groups.cs">
       <SubType>Form</SubType>
@@ -148,6 +154,17 @@
     <EmbeddedResource Include="Show Students.resx">
       <DependentUpon>Show Students.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ProjectADataSet.xsc">
+      <DependentUpon>ProjectADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectADataSet.xss">
+      <DependentUpon>ProjectADataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -36,10 +36,12 @@
             // 
             // studentsGridView1
             // 
+            this.studentsGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.studentsGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.studentsGridView1.Location = new System.Drawing.Point(132, 119);
+            this.studentsGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.studentsGridView1.Location = new System.Drawing.Point(0, 149);
             this.studentsGridView1.Name = "studentsGridView1";
-            this.studentsGridView1.Size = new System.Drawing.Size(397, 150);
+            this.studentsGridView1.Size = new System.Drawing.Size(691, 202);
             this.studentsGridView1.TabIndex = 0;
             // 
             // picBxAddNew
@@ -63,6 +65,7 @@
             this.Controls.Add(this.studentsGridView1);
             this.Name = "Show_Students";
             this.Text = "Show Students";
+            this.Load += new System.EventHandler(this.Show_Students_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentsGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.ResumeLayout(false);

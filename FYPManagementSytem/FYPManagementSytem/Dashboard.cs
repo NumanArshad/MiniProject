@@ -20,7 +20,20 @@ namespace FYPManagementSytem
      
         private void Dashboard_Load(object sender, EventArgs e)
         {
-           
+            DataBaseConnection.getInstance().conStr = "Data Source=UET\\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True";
+            try
+            {
+                DataBaseConnection.getInstance().getConnection();
+                MessageBox.Show("Data base connected");
+                string query = "select count(Id) from Project";
+                int count = DataBaseConnection.getInstance().getRowsCount(query);
+                MessageBox.Show("project in db are " + count.ToString());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error in " + ex.ToString());
+            }
+
         }
 
         private void cmdManageStudents_Click(object sender, EventArgs e)

@@ -23,5 +23,13 @@ namespace FYPManagementSytem
             this.Hide();
             add_new.Show();
         }
+        DataTable table = new DataTable();
+        private void Show_Students_Load(object sender, EventArgs e)
+        {
+            string query = "select Person.Id,Student.RegistrationNo,Person.FirstName,Person.LastName,Person.Contact,Person.Email,Person.DateOfBirth,(select Value from Lookup where Id=Person.Gender) as Gender from Person join Student on Person.Id=Student.Id";
+           var lst=  DataBaseConnection.getInstance().getAllData(query);
+            lst.Fill(table);
+            studentsGridView1.DataSource = table;  
+        }
     }
 }

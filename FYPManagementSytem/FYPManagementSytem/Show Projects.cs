@@ -16,10 +16,20 @@ namespace FYPManagementSytem
         {
             InitializeComponent();
         }
-
+        DataTable table = new DataTable();
         private void Show_Projects_Load(object sender, EventArgs e)
         {
+            string query = "select * from Project";
+            var lst = DataBaseConnection.getInstance().getAllData(query);
+            lst.Fill(table);
+            projectsGridView.DataSource = table;
+        }
 
+        private void picBxAddNew_Click(object sender, EventArgs e)
+        {
+            Add_Project add = new Add_Project();
+            this.Hide();
+            add.Show();
         }
     }
 }
