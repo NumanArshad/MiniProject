@@ -50,6 +50,8 @@ namespace FYPManagementSytem
         private void Add_Student_Load(object sender, EventArgs e)
         {
          
+
+
           /*  string getdata = string.Format("select Value from Lookup where Category='GENDER'");
           var  gender = DataBaseConnection.getInstance().readData(getdata);
             while (gender.Read())

@@ -50,6 +50,14 @@ namespace FYPManagementSytem
             SqlDataAdapter data = new SqlDataAdapter(query, getConnection());
             return data;
         }
+        public SqlDataReader autoComplete(string query,string columnname,string txtBxValue)
+        {
+            SqlCommand cmd = new SqlCommand(query, getConnection());
+            cmd.Parameters.Add(new SqlParameter(columnname, "%" + txtBxValue + "%"));
+            cmd.ExecuteNonQuery();
+            return cmd.ExecuteReader();
+
+        }
         public SqlDataReader readData(string query)
         {
             SqlCommand cmd = new SqlCommand(query, getConnection());

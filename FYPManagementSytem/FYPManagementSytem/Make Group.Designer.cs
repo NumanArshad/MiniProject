@@ -89,6 +89,7 @@
             this.cmdAddInGroup.TabIndex = 35;
             this.cmdAddInGroup.Text = "Add in Group";
             this.cmdAddInGroup.UseVisualStyleBackColor = false;
+            this.cmdAddInGroup.Click += new System.EventHandler(this.cmdAddInGroup_Click);
             // 
             // label8
             // 
@@ -105,6 +106,7 @@
             this.txtBxSearchStudent.Name = "txtBxSearchStudent";
             this.txtBxSearchStudent.Size = new System.Drawing.Size(100, 20);
             this.txtBxSearchStudent.TabIndex = 39;
+            this.txtBxSearchStudent.TextChanged += new System.EventHandler(this.txtBxSearchStudent_TextChanged);
             // 
             // cmdCreateGroup
             // 
@@ -147,6 +149,7 @@
             this.Controls.Add(this.studentGroupGridView);
             this.Name = "Make_Group";
             this.Text = "Make Group";
+            this.Load += new System.EventHandler(this.Make_Group_Load);
             ((System.ComponentModel.ISupportInitialize)(this.studentGroupGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -22,9 +22,11 @@ namespace FYPManagementSytem
       
         private void Manage_Advisors_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'projectADataSet.Advisor' table. You can move, or remove it, as needed.
-            this.advisorTableAdapter.Fill(this.projectADataSet.Advisor);
+            //    MessageBox.Show(this.projectADataSet.Advisor.ToL);
 
+            // TODO: This line of code loads data into the 'projectADataSet.Advisor' table. You can move, or remove it, as needed.
+            //    this.advisorTableAdapter.Fill(this.projectADataSet.Advisor);
+          
 
             string designationQuery = "select Value from Lookup where Id BETWEEN 6 and 10";
             var designatins= DataBaseConnection.getInstance().readData(designationQuery);
@@ -33,11 +35,17 @@ namespace FYPManagementSytem
                 cmbBxDesignation.Items.Add(designatins.GetString(0));
 
              }
+            this.showAllAdvisors();
         }
 
         private void showAllAdvisors()
         {
-
+            if (advisorsGridView.Rows.Count > 0)
+            {
+                // advisorsGridView.Rows.Clear();
+                table.Clear();
+              //  advisorsGridView.DataSource = null;
+            }
             
             string advisorsQuery = "select * from Advisor";
             var advisors = DataBaseConnection.getInstance().getAllData(advisorsQuery);
@@ -77,6 +85,13 @@ namespace FYPManagementSytem
 
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
         }
     }
 }

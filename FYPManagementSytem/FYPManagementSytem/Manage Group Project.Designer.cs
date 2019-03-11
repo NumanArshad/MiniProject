@@ -34,6 +34,7 @@
             this.groupProjectGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBxGroups = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupProjectGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.cmdSave.TabIndex = 36;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = false;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // label8
             // 
@@ -60,9 +62,6 @@
             // cmbBxProjects
             // 
             this.cmbBxProjects.FormattingEnabled = true;
-            this.cmbBxProjects.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
             this.cmbBxProjects.Location = new System.Drawing.Point(112, 88);
             this.cmbBxProjects.Name = "cmbBxProjects";
             this.cmbBxProjects.Size = new System.Drawing.Size(100, 21);
@@ -88,13 +87,20 @@
             // cmbBxGroups
             // 
             this.cmbBxGroups.FormattingEnabled = true;
-            this.cmbBxGroups.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
             this.cmbBxGroups.Location = new System.Drawing.Point(112, 125);
             this.cmbBxGroups.Name = "cmbBxGroups";
             this.cmbBxGroups.Size = new System.Drawing.Size(100, 21);
             this.cmbBxGroups.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(163, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Manage_Group_Project
             // 
@@ -102,6 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(695, 304);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBxGroups);
             this.Controls.Add(this.cmdSave);
@@ -110,6 +117,7 @@
             this.Controls.Add(this.groupProjectGridView);
             this.Name = "Manage_Group_Project";
             this.Text = "Manage Group Project";
+            this.Load += new System.EventHandler(this.Manage_Group_Project_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupProjectGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -123,5 +131,6 @@
         private System.Windows.Forms.DataGridView groupProjectGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBxGroups;
+        private System.Windows.Forms.Button button1;
     }
 }

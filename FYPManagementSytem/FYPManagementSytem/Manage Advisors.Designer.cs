@@ -30,25 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             this.advisorsGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
             this.cmdSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbBxDesignation = new System.Windows.Forms.ComboBox();
             this.txtBxSalary = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
-            this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.advisorTableAdapter = new FYPManagementSytem.ProjectADataSetTableAdapters.AdvisorTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // advisorsGridView
             // 
             this.advisorsGridView.AutoGenerateColumns = false;
+            this.advisorsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.advisorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.advisorsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -59,6 +61,34 @@
             this.advisorsGridView.Name = "advisorsGridView";
             this.advisorsGridView.Size = new System.Drawing.Size(444, 150);
             this.advisorsGridView.TabIndex = 1;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "Designation";
+            this.designationDataGridViewTextBoxColumn.HeaderText = "Designation";
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
+            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
+            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            // 
+            // advisorBindingSource
+            // 
+            this.advisorBindingSource.DataMember = "Advisor";
+            this.advisorBindingSource.DataSource = this.projectADataSet;
+            // 
+            // projectADataSet
+            // 
+            this.projectADataSet.DataSetName = "ProjectADataSet";
+            this.projectADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cmdSave
             // 
@@ -105,37 +135,19 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Salary";
             // 
-            // projectADataSet
-            // 
-            this.projectADataSet.DataSetName = "ProjectADataSet";
-            this.projectADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // advisorBindingSource
-            // 
-            this.advisorBindingSource.DataMember = "Advisor";
-            this.advisorBindingSource.DataSource = this.projectADataSet;
-            // 
             // advisorTableAdapter
             // 
             this.advisorTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // button1
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // designationDataGridViewTextBoxColumn
-            // 
-            this.designationDataGridViewTextBoxColumn.DataPropertyName = "Designation";
-            this.designationDataGridViewTextBoxColumn.HeaderText = "Designation";
-            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
-            // 
-            // salaryDataGridViewTextBoxColumn
-            // 
-            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "Salary";
-            this.salaryDataGridViewTextBoxColumn.HeaderText = "Salary";
-            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            this.button1.Location = new System.Drawing.Point(200, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Manage_Advisors
             // 
@@ -143,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(691, 301);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.label8);
@@ -153,8 +166,8 @@
             this.Text = "Manage Advisors";
             this.Load += new System.EventHandler(this.Manage_Advisors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +187,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn designationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -30,6 +30,7 @@
         {
             this.studentsGridView1 = new System.Windows.Forms.DataGridView();
             this.picBxAddNew = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentsGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.SuspendLayout();
@@ -55,12 +56,23 @@
             this.picBxAddNew.TabStop = false;
             this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(251, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Show_Students
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(691, 351);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.picBxAddNew);
             this.Controls.Add(this.studentsGridView1);
             this.Name = "Show_Students";
@@ -76,5 +88,6 @@
 
         private System.Windows.Forms.DataGridView studentsGridView1;
         private System.Windows.Forms.PictureBox picBxAddNew;
+        private System.Windows.Forms.Button button1;
     }
 }

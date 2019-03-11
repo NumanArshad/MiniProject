@@ -31,5 +31,12 @@ namespace FYPManagementSytem
             this.Hide();
             add.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
+        }
     }
 }
