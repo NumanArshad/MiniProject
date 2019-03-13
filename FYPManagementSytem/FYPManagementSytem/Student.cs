@@ -8,32 +8,32 @@ namespace FYPManagementSytem
 {
     class Student
     {
-        private int Id;
-        private string RegNo;
+        private int id;
+        private string regNo;
 
-        public int Id1
+        public int Id
         {
             get
             {
-                return Id;
+                return id;
             }
 
             set
             {
-                Id = value;
+                id = value;
             }
         }
 
-        public string RegNo1
+        public string RegNo
         {
             get
             {
-                return RegNo;
+                return regNo;
             }
 
             set
             {
-                RegNo = value;
+                regNo = value;
             }
         }
     }

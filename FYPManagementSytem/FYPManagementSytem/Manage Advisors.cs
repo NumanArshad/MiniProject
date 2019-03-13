@@ -22,76 +22,76 @@ namespace FYPManagementSytem
       
         private void Manage_Advisors_Load(object sender, EventArgs e)
         {
-            //    MessageBox.Show(this.projectADataSet.Advisor.ToL);
+         this.load_data_in_gridview();
+            DataGridViewButtonColumn editbtn = new DataGridViewButtonColumn();
+            editbtn.HeaderText = "Edit";
+            editbtn.Name = "button";
+            editbtn.Text = "Edit";
+            editbtn.UseColumnTextForButtonValue = true;
+            advisorsGridView.Columns.Add(editbtn);
 
-            // TODO: This line of code loads data into the 'projectADataSet.Advisor' table. You can move, or remove it, as needed.
-            //    this.advisorTableAdapter.Fill(this.projectADataSet.Advisor);
-          
-
-            string designationQuery = "select Value from Lookup where Id BETWEEN 6 and 10";
-            var designatins= DataBaseConnection.getInstance().readData(designationQuery);
-            while (designatins.Read())
-            {
-                cmbBxDesignation.Items.Add(designatins.GetString(0));
-
-             }
-            this.showAllAdvisors();
+            DataGridViewButtonColumn delbtn = new DataGridViewButtonColumn();
+            delbtn.HeaderText = "Delete";
+            delbtn.Name = "button";
+            delbtn.Text = "Delete";
+            delbtn.UseColumnTextForButtonValue = true;
+            advisorsGridView.Columns.Add(delbtn);
         }
 
-        private void showAllAdvisors()
+       
+        private void load_data_in_gridview()
         {
             if (advisorsGridView.Rows.Count > 0)
             {
-                // advisorsGridView.Rows.Clear();
-                table.Clear();
-              //  advisorsGridView.DataSource = null;
+               table.Clear();
+               
             }
-            
-            string advisorsQuery = "select * from Advisor";
+
+            string advisorsQuery = "select Advisor.Id,Lookup.Value as Designation,Advisor.Salary from Advisor join Lookup on Advisor.Designation=Lookup.Id";
             var advisors = DataBaseConnection.getInstance().getAllData(advisorsQuery);
             advisors.Fill(table);
             advisorsGridView.DataSource = table;
         }
 
-        private void cmdSave_Click(object sender, EventArgs e)
-        {
-            string  queryProject="";
-          try
-            {
-                int maxId;
-                string querymx = "select max(Id) from Advisor";
-                maxId = DataBaseConnection.getInstance().getRowsCount(querymx)+1;
-                if (txtBxSalary.Text == "")
-                {
-                    queryProject = string.Format("insert into Advisor(Id,Designation) values('{0}',(select Id from Lookup where Value='{1}'))", maxId, cmbBxDesignation.Text);
-                }
-                else
-                {
-                    queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values('{0}',(select Id from Lookup where Value='{1}'),'{2}')", maxId, cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
-                }
-
-            }
-            catch
-            {
-                queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
-            }
-
-            DataBaseConnection.getInstance().executeQuery(queryProject);
-            MessageBox.Show("Added Success");
-            this.showAllAdvisors();
-
-
-
-
-
-
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
             this.Hide();
             dashboard.Show();
+        }
+
+        private void picBxAddNew_Click(object sender, EventArgs e)
+        {
+            GeneralID.selectedObjectid = 0;
+            Add_Advisor newAdvisor = new Add_Advisor();
+            this.Hide();
+            newAdvisor.Show();
+        }
+        int selectedrow;
+        private void advisorsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedrow = advisorsGridView.CurrentCell.RowIndex;
+            DataGridViewRow row = advisorsGridView.Rows[selectedrow];
+
+            if (e.ColumnIndex == 3)
+            {
+                GeneralID.selectedObjectid = (int)row.Cells[0].Value;
+                Add_Advisor add = new Add_Advisor();
+                this.Hide();
+                add.Show();
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                int selectId = (int)row.Cells[0].Value;
+                string deleteAdvisorQuery = string.Format("delete Advisor where Id='{0}'", selectId);
+                DataBaseConnection.getInstance().executeQuery(deleteAdvisorQuery);
+
+                MessageBox.Show("Advisor deleted Successfully");
+                this.load_data_in_gridview();
+
+            }
         }
     }
 }

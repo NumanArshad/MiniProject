@@ -19,6 +19,7 @@ namespace FYPManagementSytem
 
         private void picBxAddNew_Click(object sender, EventArgs e)
         {
+            GeneralID.selectedObjectid = 0;
             Add_Student add_new =new  Add_Student();
             this.Hide();
             add_new.Show();
@@ -26,10 +27,21 @@ namespace FYPManagementSytem
         DataTable table = new DataTable();
         private void Show_Students_Load(object sender, EventArgs e)
         {
-            string query = "select Person.Id,Student.RegistrationNo,Person.FirstName,Person.LastName,Person.Contact,Person.Email,Person.DateOfBirth,(select Value from Lookup where Id=Person.Gender) as Gender from Person join Student on Person.Id=Student.Id";
-           var lst=  DataBaseConnection.getInstance().getAllData(query);
-            lst.Fill(table);
-            studentsGridView1.DataSource = table;  
+            this.load_data_in_gridview();
+
+            DataGridViewButtonColumn editbtn = new DataGridViewButtonColumn();
+            editbtn.HeaderText = "Edit";
+            editbtn.Name = "button";
+            editbtn.Text = "Edit";
+            editbtn.UseColumnTextForButtonValue = true;
+            studentsGridView1.Columns.Add(editbtn);
+
+            DataGridViewButtonColumn delbtn = new DataGridViewButtonColumn();
+            delbtn.HeaderText = "Delete";
+            delbtn.Name = "button";
+            delbtn.Text = "Delete";
+            delbtn.UseColumnTextForButtonValue = true;
+            studentsGridView1.Columns.Add(delbtn);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,6 +49,49 @@ namespace FYPManagementSytem
             Dashboard dashboard = new Dashboard();
             this.Hide();
             dashboard.Show();
+        }
+        int selected;
+        private void studentsGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selected = studentsGridView1.CurrentCell.RowIndex;
+            DataGridViewRow row = studentsGridView1.Rows[selected];
+           
+            if (e.ColumnIndex == 7)
+            {
+                GeneralID.selectedObjectid = (int)row.Cells[0].Value;
+                Add_Student add = new Add_Student();
+                this.Hide();
+                add.Show();
+            }
+            else if (e.ColumnIndex == 8)
+            {
+                int selectId = (int)row.Cells[0].Value;
+                string deleteStudentQuery = string.Format("delete Student where Id='{0}'", selectId);
+                DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+
+               
+                string deletePersonQuery = string.Format("delete Person where Id='{0}'", selectId);
+                DataBaseConnection.getInstance().executeQuery(deletePersonQuery);
+              
+
+                MessageBox.Show("Student deleted Successfully");
+                this.load_data_in_gridview();
+
+            }
+
+
+        }
+        private void load_data_in_gridview()
+        {
+            if (studentsGridView1.Rows.Count > 0)
+            {
+                table.Clear();
+            }
+
+            string query = "select Student.RegistrationNo,Person.FirstName,Person.LastName,Person.Contact,Person.Email,Person.DateOfBirth,Lookup.Value as Gender from Person join Student on Person.Id=Student.Id join Lookup on Lookup.Id=Person.Gender";
+            var lst = DataBaseConnection.getInstance().getAllData(query);
+            lst.Fill(table);
+            studentsGridView1.DataSource = table;
         }
     }
 }

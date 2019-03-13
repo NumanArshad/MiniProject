@@ -44,6 +44,7 @@
             this.studentsGridView1.Name = "studentsGridView1";
             this.studentsGridView1.Size = new System.Drawing.Size(691, 202);
             this.studentsGridView1.TabIndex = 0;
+            this.studentsGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsGridView1_CellContentClick);
             // 
             // picBxAddNew
             // 

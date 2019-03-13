@@ -27,7 +27,7 @@ namespace FYPManagementSytem
             DataBaseConnection.getInstance().executeQuery(queryGroup);
             foreach (Student st in StudentGroupDL.getInstance().getStudentGroup())
             {
-                string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from Group1),'{0}','{1}','{2}')", st.Id1, 4, currentDateTime);
+                string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from Group1),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
                 DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
                
 
@@ -102,9 +102,9 @@ namespace FYPManagementSytem
             string query = string.Format("select Id from Student where RegistrationNo='{0}'", txtBxSearchStudent.Text);
             int studentId = DataBaseConnection.getInstance().getRowsCount(query);
             Student student = new Student();
-            student.Id1 = studentId;
-            student.RegNo1 = txtBxSearchStudent.Text;
-
+            student.Id = studentId;
+            student.RegNo = txtBxSearchStudent.Text;
+         //   student.FirstName1 = null;
             StudentGroupDL.getInstance().addStudent(student);
             BindingSource bind = new BindingSource();
             bind.DataSource = StudentGroupDL.getInstance().getStudentGroup();

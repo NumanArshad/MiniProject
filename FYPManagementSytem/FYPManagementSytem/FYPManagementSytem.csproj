@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add Advisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Advisor.Designer.cs">
+      <DependentUpon>Add Advisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add Project.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,7 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBaseConnection.cs" />
+    <Compile Include="GeneralID.cs" />
     <Compile Include="Manage Advisors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +90,7 @@
     <Compile Include="Manage Project  Advisors.Designer.cs">
       <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Person.cs" />
     <Compile Include="ProjectADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,6 +129,9 @@
     </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="StudentGroupDL.cs" />
+    <EmbeddedResource Include="Add Advisor.resx">
+      <DependentUpon>Add Advisor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add Project.resx">
       <DependentUpon>Add Project.cs</DependentUpon>
     </EmbeddedResource>
