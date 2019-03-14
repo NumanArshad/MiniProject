@@ -26,22 +26,25 @@ namespace FYPManagementSytem
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            if (!is_editMode())
+            if (!is_invalid())
             {
-                string query = string.Format("insert into Evaluation(Name,TotalMarks,TotalWeightage) values('{0}','{1}','{2}')", txtBxName.Text, int.Parse(txtBxTotalMark.Text), int.Parse(txtBxTotalWeightage.Text));
-                DataBaseConnection.getInstance().executeQuery(query);
-                MessageBox.Show("Evaluation added Successfully");
+                if (!is_editMode())
+                {
+                    string query = string.Format("insert into Evaluation(Name,TotalMarks,TotalWeightage) values('{0}','{1}','{2}')", txtBxName.Text, int.Parse(txtBxTotalMark.Text), int.Parse(txtBxTotalWeightage.Text));
+                    DataBaseConnection.getInstance().executeQuery(query);
+                    MessageBox.Show("Evaluation added Successfully");
+                }
+                else
+                {
+                    string query = string.Format("update Evaluation set Name='{0}',TotalMarks='{1}',TotalWeightage='{2}' where Id='{3}'", txtBxName.Text, int.Parse(txtBxTotalMark.Text), int.Parse(txtBxTotalWeightage.Text), GeneralID.selectedObjectid);
+                    DataBaseConnection.getInstance().executeQuery(query);
+                    MessageBox.Show("Evaluation updated Successfully");
+                    GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
+                }
+                Show_Evaluations evaluation = new Show_Evaluations();
+                this.Hide();
+                evaluation.Show();
             }
-            else
-            {
-                string query = string.Format("update Evaluation set Name='{0}',TotalMarks='{1}',TotalWeightage='{2}' where Id='{3}'", txtBxName.Text, int.Parse(txtBxTotalMark.Text), int.Parse(txtBxTotalWeightage.Text),GeneralID.selectedObjectid);
-                DataBaseConnection.getInstance().executeQuery(query);
-                MessageBox.Show("Evaluation updated Successfully");
-                GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
-            }
-            Show_Evaluations evaluation = new Show_Evaluations();
-            this.Hide();
-            evaluation.Show();
         }
 
         private void Add_Evaluation_Load(object sender, EventArgs e)
@@ -69,5 +72,52 @@ namespace FYPManagementSytem
             return EditMode;
 
         }
+
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblNameError.Text = ""; lblTotalMarksError.Text = ""; lblTotalWeightageError.Text = "";
+
+            if (!is_editMode() && existAlready())
+            {
+                invalid = true;
+
+            }
+
+            if (txtBxName.Text.All(Char.IsDigit) || txtBxName.Text == "")  //txtBxName.Text.Any(Char.IsDigit) 
+            {
+                lblNameError.Text = "Invalid Name";
+                invalid = true;
+            }
+            if (!txtBxTotalMark.Text.All(Char.IsDigit) || txtBxTotalMark.Text == "")
+            {
+                lblTotalMarksError.Text = "Invalid  Total Marks";
+                invalid = true;
+            }
+            if (!txtBxTotalWeightage.Text.All(Char.IsDigit) || txtBxTotalWeightage.Text == "")
+            {
+                lblTotalWeightageError.Text = "Invalid  Total Weightage";
+                invalid = true;
+            }
+           return invalid;
+        }
+       private Boolean existAlready()
+        {
+            Boolean isexist = false;
+            string queryExistEvaluation = string.Format("select Name from Evaluation");
+            var existName = DataBaseConnection.getInstance().readData(queryExistEvaluation);
+            while (existName.Read())
+            {
+
+                if (existName.GetString(0) == txtBxName.Text)
+                {
+                    lblNameError.Text = "Name Already Exist";
+                    isexist = true;
+                    break;
+                }
+            }
+            return isexist;
+        }
+
     }
 }

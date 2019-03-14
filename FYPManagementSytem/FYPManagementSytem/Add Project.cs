@@ -34,27 +34,33 @@ namespace FYPManagementSytem
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            if (!is_editMode())
+            if (!is_invalid())
             {
+                if (!is_editMode())
+                {
+                   
+                    string queryProject = string.Format("insert into Project(Description,Title) values('{0}','{1}')", richTextBxDesc.Text, txtBxTitle.Text);
+                    DataBaseConnection.getInstance().executeQuery(queryProject);
+                    MessageBox.Show("Added Success");
+                }
+                else
+                {
 
-                string queryProject = string.Format("insert into Project(Description,Title) values('{0}','{1}')", richTextBxDesc.Text, txtBxTitle.Text);
-                DataBaseConnection.getInstance().executeQuery(queryProject);
-                MessageBox.Show("Added Success");
+                  
+                    string updateQuery = string.Format("update Project  set Title='{0}',Description='{1}' where Id='{2}'", txtBxTitle.Text, richTextBxDesc.Text, GeneralID.selectedObjectid);
+                    DataBaseConnection.getInstance().executeQuery(updateQuery);
+                    MessageBox.Show("Update Success");
+                    GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
+                }
+                Show_Projects showProject = new Show_Projects();
+                this.Hide();
+                showProject.Show();
             }
-            else
-            {
-                string updateQuery= string.Format("update Project  set Title='{0}',Description='{1}' where Id='{2}'", txtBxTitle.Text,richTextBxDesc.Text, GeneralID.selectedObjectid);
-                DataBaseConnection.getInstance().executeQuery(updateQuery);
-                MessageBox.Show("Update Success");
-                GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
-            }
-            Show_Projects showProject = new Show_Projects();
-            this.Hide();
-            showProject.Show();
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
+            GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
             Show_Projects projects = new Show_Projects();
             this.Hide();
             projects.Show();
@@ -69,6 +75,47 @@ namespace FYPManagementSytem
             }
             return EditMode;
 
+        }
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblTitleError.Text = ""; lblDescriptionError.Text = "";
+
+            if (!is_editMode() && existAlready())
+            {
+                invalid = true;
+
+            }
+            
+            if (txtBxTitle.Text.Any(Char.IsDigit) || txtBxTitle.Text == "")
+            {
+                lblTitleError.Text = "Invalid Title";
+                invalid = true;
+            }
+            if (richTextBxDesc.Text.Any(Char.IsDigit) || richTextBxDesc.Text == "")
+            {
+                lblDescriptionError.Text = "Invalid Description";
+                invalid = true;
+            }
+
+            return invalid;
+        }
+        private Boolean existAlready()
+        {
+            Boolean isexist = false;
+            string queryExistProject = string.Format("select Title from Project");
+            var existTitle = DataBaseConnection.getInstance().readData(queryExistProject);
+            while (existTitle.Read())
+            {
+
+                if (existTitle.GetString(0) == txtBxTitle.Text)
+                {
+                     lblTitleError.Text = "Title Already Exist";
+                    isexist = true;
+                    break;
+                }
+            }
+            return isexist;
         }
     }
 }

@@ -68,14 +68,14 @@ namespace FYPManagementSytem
             selected = studentsGridView1.CurrentCell.RowIndex;
             DataGridViewRow row = studentsGridView1.Rows[selected];
            
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 8)
             {
                 GeneralID.selectedObjectid = (int)row.Cells[0].Value;
                 Add_Student add = new Add_Student();
                 this.Hide();
                 add.Show();
             }
-            else if (e.ColumnIndex == 8)
+            else if (e.ColumnIndex == 9)
             {
                 int selectId = (int)row.Cells[0].Value;
                 string deleteStudentQuery = string.Format("delete Student where Id='{0}'", selectId);
@@ -100,7 +100,7 @@ namespace FYPManagementSytem
                 table.Clear();
             }
 
-            string query = "select Student.RegistrationNo,Person.FirstName,Person.LastName,Person.Contact,Person.Email,Person.DateOfBirth,Lookup.Value as Gender from Person join Student on Person.Id=Student.Id join Lookup on Lookup.Id=Person.Gender";
+            string query = "select Person.Id,Student.RegistrationNo,Person.FirstName,Person.LastName,Person.Contact,Person.Email,Person.DateOfBirth,Lookup.Value as Gender from Person join Student on Person.Id=Student.Id join Lookup on Lookup.Id=Person.Gender";
             var lst = DataBaseConnection.getInstance().getAllData(query);
             lst.Fill(table);
             studentsGridView1.DataSource = table;

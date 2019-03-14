@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,30 +21,37 @@ namespace FYPManagementSytem
         private void cmdSave_Click(object sender, EventArgs e)
         {
             try {
-                //check either new student is going too added
-                if (!is_editMode())  
+                if (!is_invalid())  //validate data
                 {
-                    string queryPerson = string.Format("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth,Gender) values('{0}','{1}','{2}','{3}','{4}',(select Id from Lookup where Value='{5}'))",
-               txtBxFirstName.Text, txtBxLastName.Text, txtBxContact.Text, txtBxEmail.Text, Convert.ToDateTime(dateTimePickerDOB.Value), cmbBxGender.Text);
-                    DataBaseConnection.getInstance().executeQuery(queryPerson);
-                    string queryStudent = string.Format("insert into Student(Id,RegistrationNo) values((select max(Id) from Person),'{0}')", txtBxReg.Text);
-                    DataBaseConnection.getInstance().executeQuery(queryStudent);
-                    MessageBox.Show("Added Success");
-                 
+                    
+                    if (!is_editMode()) //check either new student is going to added
+                    {
+                   
+
+                        string queryPerson = string.Format("insert into Person(FirstName,LastName,Contact,Email,DateOfBirth,Gender) values('{0}','{1}','{2}','{3}','{4}',(select Id from Lookup where Value='{5}'))",
+                   txtBxFirstName.Text, txtBxLastName.Text, txtBxContact.Text, txtBxEmail.Text, Convert.ToDateTime(dateTimePickerDOB.Value), cmbBxGender.Text);
+                        DataBaseConnection.getInstance().executeQuery(queryPerson);
+                        string queryStudent = string.Format("insert into Student(Id,RegistrationNo) values((select max(Id) from Person),'{0}')", txtBxReg.Text);
+                        DataBaseConnection.getInstance().executeQuery(queryStudent);
+                        MessageBox.Show("Added Success");
+                   }
+                    else  // student is being updated
+                    {
+                        string queryPerson = string.Format("update Person set FirstName='{0}',LastName='{1}',Contact='{2}',Email='{3}',DateOfBirth='{4}',Gender=(select Id from Lookup where Value='{5}') where Id='{6}'",
+            txtBxFirstName.Text, txtBxLastName.Text, txtBxContact.Text, txtBxEmail.Text, Convert.ToDateTime(dateTimePickerDOB.Value), cmbBxGender.Text, GeneralID.selectedObjectid);
+                        DataBaseConnection.getInstance().executeQuery(queryPerson);
+                        string queryStudent = string.Format("update Student  set RegistrationNo='{0}' where Id='{1}'", txtBxReg.Text, GeneralID.selectedObjectid);
+                        DataBaseConnection.getInstance().executeQuery(queryStudent);
+                        MessageBox.Show("Update Success");
+                        GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
+                       
+                    }
+                    Show_Students showStudent = new Show_Students();
+                    this.Hide();
+                    showStudent.Show();
+
+
                 }
-                else  // student is being updated
-                {
-                    string queryPerson = string.Format("update Person set FirstName='{0}',LastName='{1}',Contact='{2}',Email='{3}',DateOfBirth='{4}',Gender=(select Id from Lookup where Value='{5}') where Id='{6}'",
-        txtBxFirstName.Text, txtBxLastName.Text, txtBxContact.Text, txtBxEmail.Text, Convert.ToDateTime(dateTimePickerDOB.Value), cmbBxGender.Text,GeneralID.selectedObjectid);
-                    DataBaseConnection.getInstance().executeQuery(queryPerson);
-                    string queryStudent = string.Format("update Student  set RegistrationNo='{0}' where Id='{1}'", txtBxReg.Text,GeneralID.selectedObjectid);
-                    DataBaseConnection.getInstance().executeQuery(queryStudent);
-                    MessageBox.Show("Update Success");
-                    GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
-                }
-                Show_Students showStudent = new Show_Students();
-                this.Hide();
-                showStudent.Show();
             }
             catch(Exception ex)
             {
@@ -55,8 +63,92 @@ namespace FYPManagementSytem
 
         }
 
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblRegNoError.Text = "";lblFirstNameError.Text = "";lblLastNameError.Text = "";
+            lblContactError.Text = "";lblEmailError.Text = "";lblDOBError.Text = "";
+            lblGenderError.Text = "";
+
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"); //regex expression for email
+            Match match = regex.Match(txtBxEmail.Text);
+            if (!is_editMode() && existAlready())
+            {
+                invalid = true;
+            }
+         
+            if (txtBxReg.Text.Count() != 11 || !txtBxReg.Text.Split('-')[0].All(Char.IsDigit) || txtBxReg.Text[4] != '-' || txtBxReg.Text[7] != '-' ||
+                !txtBxReg.Text.Split('-')[1].All(Char.IsLetter) || !txtBxReg.Text.Split('-')[2].All(Char.IsDigit) ||
+            !txtBxReg.Text.Split('-')[1].All(Char.IsUpper))
+            {
+                lblRegNoError.Text = "Invalid Registration Number";
+                   invalid = true;
+            }
+            if(txtBxFirstName.Text.Any(Char.IsDigit) || txtBxFirstName.Text == "")
+            {
+                lblFirstNameError.Text = "Invalid First Name";
+                invalid = true;
+            }
+            if (txtBxLastName.Text.Any(Char.IsDigit) || txtBxLastName.Text == "")
+            {
+                lblLastNameError.Text = "Invalid Last Name";
+                invalid = true;
+            }
+            if (txtBxContact.Text.Count()!=11 || !txtBxContact.Text.All(Char.IsDigit))
+            {
+                lblContactError.Text = "Invalid Contact Number";
+                invalid = true;
+            }
+            if (txtBxEmail.Text == "" || txtBxEmail.Text.Count() < 13 || !match.Success) //txtBxEmail.Text.Substring(txtBxEmail.Text.Count() - 10, 10) == "@gmail.com"
+            {
+                lblEmailError.Text = "Invalid Email";
+                invalid = true;
+            }
+            if (Convert.ToDateTime(dateTimePickerDOB.Value)>=DateTime.Now)
+            {
+                lblDOBError.Text = "Invalid date of Birth";
+                invalid = true;
+            }
+            if(cmbBxGender.Text.Any(Char.IsDigit) || cmbBxGender.Text == "")
+            {
+                lblGenderError.Text = "Invalid Gender Selection";
+                invalid = true;
+            }
+           return invalid;
+   }
+
+        private Boolean existAlready()
+        {
+            Boolean isExist = false;
+            string query = string.Format("select RegistrationNo from Student");
+            var existStudent = DataBaseConnection.getInstance().readData(query);
+            while (existStudent.Read())
+            {
+                if (existStudent.GetString(0) == txtBxReg.Text)
+                {
+                    lblRegNoError.Text = "RegNo exist Already";
+                    isExist = true;
+                    break;
+                }
+            }
+            string queryEmail = string.Format("select Email from Person");
+            var existEmail = DataBaseConnection.getInstance().readData(queryEmail);
+            while (existEmail.Read())
+            {
+
+                if (existEmail.GetString(0) == txtBxEmail.Text)
+                {
+
+                    lblEmailError.Text = "Email Already Exist";
+                    isExist = true;
+                    break;
+                }
+            }
+            return isExist;
+        }
         private void cmdCancel_Click(object sender, EventArgs e)
         {
+            GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
             Show_Students showStudent = new Show_Students();
             this.Hide();
             showStudent.Show();

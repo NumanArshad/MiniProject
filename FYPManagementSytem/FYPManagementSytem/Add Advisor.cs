@@ -19,6 +19,7 @@ namespace FYPManagementSytem
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
+            GeneralID.selectedObjectid = 0;
             Manage_Advisors showAdvisor = new Manage_Advisors();
             this.Hide();
             showAdvisor.Show();
@@ -72,62 +73,84 @@ namespace FYPManagementSytem
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            if (!is_editMode())
+            if (!is_invalid())
             {
-                string queryProject = "";
-                try
+                if (!is_editMode())
                 {
-                    int maxId;
-                    string querymx = "select max(Id) from Advisor";
-                    maxId = DataBaseConnection.getInstance().getRowsCount(querymx) + 1;
-                    if (txtBxSalary.Text == "")
+                    string queryProject = "";
+                    try
                     {
-                        queryProject = string.Format("insert into Advisor(Id,Designation) values('{0}',(select Id from Lookup where Value='{1}'))", maxId, cmbBxDesignation.Text);
+                        int maxId;
+                        string querymx = "select max(Id) from Advisor";
+                        maxId = DataBaseConnection.getInstance().getRowsCount(querymx) + 1;
+                        if (txtBxSalary.Text == "")
+                        {
+                            queryProject = string.Format("insert into Advisor(Id,Designation) values('{0}',(select Id from Lookup where Value='{1}'))", maxId, cmbBxDesignation.Text);
+                        }
+                        else
+                        {
+                            queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values('{0}',(select Id from Lookup where Value='{1}'),'{2}')", maxId, cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
+                        }
+
                     }
-                    else
+                    catch
                     {
-                        queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values('{0}',(select Id from Lookup where Value='{1}'),'{2}')", maxId, cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
+                        if (txtBxSalary.Text == "")
+                        {
+                            queryProject = string.Format("insert into Advisor(Id,Designation) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text);
+                        }
+                        else
+                        {
+                            queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
+                        }
+
                     }
 
-                }
-                catch
-                {
-                    if (txtBxSalary.Text == "")
-                    {
-                        queryProject = string.Format("insert into Advisor(Id,Designation) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text);
-                    }
-                    else
-                    {
-                        queryProject = string.Format("insert into Advisor(Id,Designation,Salary) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text, int.Parse(txtBxSalary.Text));
-                    }
-
-                }
-
-                DataBaseConnection.getInstance().executeQuery(queryProject);
-                MessageBox.Show("Added Success");
-
-            }
-            else
-            {
-                string queryUpdateAdvisor;
-                if (txtBxSalary.Text == "")
-                {
-                     queryUpdateAdvisor = string.Format("update Advisor  set Designation=(select Id from Lookup where Value='{0}'),Salary='{1}' where Id='{2}'", cmbBxDesignation.Text,null , GeneralID.selectedObjectid);
+                    DataBaseConnection.getInstance().executeQuery(queryProject);
+                    MessageBox.Show("Added Success");
 
                 }
                 else
                 {
-                    queryUpdateAdvisor = string.Format("update Advisor  set Designation=(select Id from Lookup where Value='{0}'),Salary='{1}' where Id='{2}'", cmbBxDesignation.Text,int.Parse(txtBxSalary.Text),GeneralID.selectedObjectid);
+                    string queryUpdateAdvisor;
+                    if (txtBxSalary.Text == "")
+                    {
+                        queryUpdateAdvisor = string.Format("update Advisor  set Designation=(select Id from Lookup where Value='{0}'),Salary='{1}' where Id='{2}'", cmbBxDesignation.Text, null, GeneralID.selectedObjectid);
+
+                    }
+                    else
+                    {
+                        queryUpdateAdvisor = string.Format("update Advisor  set Designation=(select Id from Lookup where Value='{0}'),Salary='{1}' where Id='{2}'", cmbBxDesignation.Text, int.Parse(txtBxSalary.Text), GeneralID.selectedObjectid);
+                    }
+                    DataBaseConnection.getInstance().executeQuery(queryUpdateAdvisor);
+                    MessageBox.Show("Update Success");
+                    GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
+
                 }
-                DataBaseConnection.getInstance().executeQuery(queryUpdateAdvisor);
-                MessageBox.Show("Update Success");
-                GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
 
+                Manage_Advisors showAdvisor = new Manage_Advisors();
+                this.Hide();
+                showAdvisor.Show();
             }
+        }
 
-            Manage_Advisors showAdvisor = new Manage_Advisors();
-            this.Hide();
-            showAdvisor.Show();
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblDesignationError.Text = ""; lblSalaryError.Text = "";
+
+            if (cmbBxDesignation.Text.Any(Char.IsDigit) || cmbBxDesignation.Text == "")
+            {
+                lblDesignationError.Text = "Invalid Designation";
+                invalid = true;
+            }
+            if (!txtBxSalary.Text.All(Char.IsDigit))
+            {
+                lblSalaryError.Text = "Invalid Salary";
+                invalid = true;
+            }
+           
+            return invalid;
         }
     }
 }
