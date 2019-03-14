@@ -48,35 +48,35 @@
             // 
             // txtBxReg
             // 
-            this.txtBxReg.Location = new System.Drawing.Point(217, 24);
+            this.txtBxReg.Location = new System.Drawing.Point(314, 77);
             this.txtBxReg.Name = "txtBxReg";
             this.txtBxReg.Size = new System.Drawing.Size(100, 20);
             this.txtBxReg.TabIndex = 0;
             // 
             // txtBxFirstName
             // 
-            this.txtBxFirstName.Location = new System.Drawing.Point(217, 61);
+            this.txtBxFirstName.Location = new System.Drawing.Point(314, 114);
             this.txtBxFirstName.Name = "txtBxFirstName";
             this.txtBxFirstName.Size = new System.Drawing.Size(100, 20);
             this.txtBxFirstName.TabIndex = 0;
             // 
             // txtBxLastName
             // 
-            this.txtBxLastName.Location = new System.Drawing.Point(217, 101);
+            this.txtBxLastName.Location = new System.Drawing.Point(314, 154);
             this.txtBxLastName.Name = "txtBxLastName";
             this.txtBxLastName.Size = new System.Drawing.Size(100, 20);
             this.txtBxLastName.TabIndex = 0;
             // 
             // txtBxContact
             // 
-            this.txtBxContact.Location = new System.Drawing.Point(217, 143);
+            this.txtBxContact.Location = new System.Drawing.Point(314, 196);
             this.txtBxContact.Name = "txtBxContact";
             this.txtBxContact.Size = new System.Drawing.Size(100, 20);
             this.txtBxContact.TabIndex = 0;
             // 
             // txtBxEmail
             // 
-            this.txtBxEmail.Location = new System.Drawing.Point(217, 183);
+            this.txtBxEmail.Location = new System.Drawing.Point(314, 236);
             this.txtBxEmail.Name = "txtBxEmail";
             this.txtBxEmail.Size = new System.Drawing.Size(100, 20);
             this.txtBxEmail.TabIndex = 0;
@@ -84,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 61);
+            this.label1.Location = new System.Drawing.Point(227, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 1;
@@ -93,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(129, 101);
+            this.label2.Location = new System.Drawing.Point(226, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 1;
@@ -102,7 +102,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(129, 143);
+            this.label3.Location = new System.Drawing.Point(226, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 1;
@@ -111,7 +111,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(141, 183);
+            this.label4.Location = new System.Drawing.Point(238, 236);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 1;
@@ -120,7 +120,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(107, 230);
+            this.label6.Location = new System.Drawing.Point(204, 283);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 1;
@@ -129,7 +129,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(129, 272);
+            this.label7.Location = new System.Drawing.Point(226, 325);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 1;
@@ -138,7 +138,7 @@
             // cmbBxGender
             // 
             this.cmbBxGender.FormattingEnabled = true;
-            this.cmbBxGender.Location = new System.Drawing.Point(217, 264);
+            this.cmbBxGender.Location = new System.Drawing.Point(314, 317);
             this.cmbBxGender.Name = "cmbBxGender";
             this.cmbBxGender.Size = new System.Drawing.Size(100, 21);
             this.cmbBxGender.TabIndex = 2;
@@ -146,7 +146,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(75, 31);
+            this.label8.Location = new System.Drawing.Point(172, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 13);
             this.label8.TabIndex = 4;
@@ -155,7 +155,7 @@
             // dateTimePickerDOB
             // 
             this.dateTimePickerDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDOB.Location = new System.Drawing.Point(217, 223);
+            this.dateTimePickerDOB.Location = new System.Drawing.Point(314, 276);
             this.dateTimePickerDOB.Name = "dateTimePickerDOB";
             this.dateTimePickerDOB.Size = new System.Drawing.Size(100, 20);
             this.dateTimePickerDOB.TabIndex = 5;
@@ -164,7 +164,7 @@
             // 
             this.cmdSave.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdSave.Location = new System.Drawing.Point(217, 315);
+            this.cmdSave.Location = new System.Drawing.Point(314, 368);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(84, 33);
             this.cmdSave.TabIndex = 6;
@@ -176,7 +176,7 @@
             // 
             this.cmdCancel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdCancel.Location = new System.Drawing.Point(110, 315);
+            this.cmdCancel.Location = new System.Drawing.Point(207, 368);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 33);
             this.cmdCancel.TabIndex = 7;
@@ -189,7 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(413, 350);
+            this.ClientSize = new System.Drawing.Size(706, 471);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdSave);
             this.Controls.Add(this.dateTimePickerDOB);

@@ -52,6 +52,12 @@
     <Compile Include="Add Advisor.Designer.cs">
       <DependentUpon>Add Advisor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add Evaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Evaluation.Designer.cs">
+      <DependentUpon>Add Evaluation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add Project.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectADataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Show Evaluations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show Evaluations.Designer.cs">
+      <DependentUpon>Show Evaluations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Show Student Groups.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,9 @@
     <EmbeddedResource Include="Add Advisor.resx">
       <DependentUpon>Add Advisor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add Evaluation.resx">
+      <DependentUpon>Add Evaluation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add Project.resx">
       <DependentUpon>Add Project.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Project  Advisors.resx">
       <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show Evaluations.resx">
+      <DependentUpon>Show Evaluations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Show Student Groups.resx">
       <DependentUpon>Show Student Groups.cs</DependentUpon>

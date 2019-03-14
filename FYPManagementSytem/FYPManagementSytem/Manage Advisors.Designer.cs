@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.advisorsGridView = new System.Windows.Forms.DataGridView();
             this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
@@ -43,11 +45,30 @@
             // 
             // advisorsGridView
             // 
+            this.advisorsGridView.AllowUserToAddRows = false;
             this.advisorsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.advisorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.advisorsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.advisorsGridView.ColumnHeadersHeight = 25;
+            this.advisorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.advisorsGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.advisorsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.advisorsGridView.Location = new System.Drawing.Point(0, 84);
             this.advisorsGridView.Name = "advisorsGridView";
+            this.advisorsGridView.ReadOnly = true;
             this.advisorsGridView.Size = new System.Drawing.Size(691, 217);
             this.advisorsGridView.TabIndex = 1;
             this.advisorsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advisorsGridView_CellContentClick);

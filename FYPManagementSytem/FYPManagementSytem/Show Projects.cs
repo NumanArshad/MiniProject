@@ -63,7 +63,7 @@ namespace FYPManagementSytem
         }
         private void picBxAddNew_Click(object sender, EventArgs e)
         {
-            GeneralID.selectedObjectid = 0;
+            
            Add_Project add = new Add_Project();
             this.Hide();
             add.Show();
@@ -79,7 +79,7 @@ namespace FYPManagementSytem
         int selectedrow;
         private void projectsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedrow = projectsGridView.CurrentCell.RowIndex;
+           
             DataGridViewRow row = projectsGridView.Rows[selectedrow];
 
             if (e.ColumnIndex == 3)

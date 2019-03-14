@@ -35,6 +35,8 @@
             this.cmdGroupProject = new System.Windows.Forms.Button();
             this.cmdStudentGroups = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmdManageEvaluations = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdManageStudents
@@ -68,7 +70,7 @@
             this.cmdManageAdvisors.BackColor = System.Drawing.SystemColors.Desktop;
             this.cmdManageAdvisors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdManageAdvisors.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdManageAdvisors.Location = new System.Drawing.Point(444, 155);
+            this.cmdManageAdvisors.Location = new System.Drawing.Point(425, 155);
             this.cmdManageAdvisors.Name = "cmdManageAdvisors";
             this.cmdManageAdvisors.Size = new System.Drawing.Size(121, 59);
             this.cmdManageAdvisors.TabIndex = 2;
@@ -81,7 +83,7 @@
             this.cmdProjectAdvisors.BackColor = System.Drawing.SystemColors.Desktop;
             this.cmdProjectAdvisors.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdProjectAdvisors.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdProjectAdvisors.Location = new System.Drawing.Point(444, 241);
+            this.cmdProjectAdvisors.Location = new System.Drawing.Point(425, 241);
             this.cmdProjectAdvisors.Name = "cmdProjectAdvisors";
             this.cmdProjectAdvisors.Size = new System.Drawing.Size(121, 59);
             this.cmdProjectAdvisors.TabIndex = 5;
@@ -125,12 +127,39 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "FYP Management System";
             // 
+            // cmdManageEvaluations
+            // 
+            this.cmdManageEvaluations.BackColor = System.Drawing.SystemColors.Desktop;
+            this.cmdManageEvaluations.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdManageEvaluations.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdManageEvaluations.Location = new System.Drawing.Point(584, 155);
+            this.cmdManageEvaluations.Name = "cmdManageEvaluations";
+            this.cmdManageEvaluations.Size = new System.Drawing.Size(121, 59);
+            this.cmdManageEvaluations.TabIndex = 7;
+            this.cmdManageEvaluations.Text = "Manage Evaluations";
+            this.cmdManageEvaluations.UseVisualStyleBackColor = false;
+            this.cmdManageEvaluations.Click += new System.EventHandler(this.cmdManageEvaluations_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(584, 241);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 59);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Manage Evaluations";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(688, 373);
+            this.ClientSize = new System.Drawing.Size(754, 373);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmdManageEvaluations);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdProjectAdvisors);
             this.Controls.Add(this.cmdGroupProject);
@@ -155,6 +184,8 @@
         private System.Windows.Forms.Button cmdGroupProject;
         private System.Windows.Forms.Button cmdStudentGroups;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button cmdManageEvaluations;
+        private System.Windows.Forms.Button button1;
     }
 }
 

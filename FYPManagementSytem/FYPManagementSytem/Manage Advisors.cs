@@ -22,7 +22,20 @@ namespace FYPManagementSytem
       
         private void Manage_Advisors_Load(object sender, EventArgs e)
         {
-         this.load_data_in_gridview();
+
+            advisorsGridView.BorderStyle = BorderStyle.None;
+            advisorsGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            advisorsGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            advisorsGridView.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            advisorsGridView.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            advisorsGridView.BackgroundColor = Color.White;
+
+            advisorsGridView.EnableHeadersVisualStyles = false;
+            advisorsGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            advisorsGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            advisorsGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
+            this.load_data_in_gridview();
             DataGridViewButtonColumn editbtn = new DataGridViewButtonColumn();
             editbtn.HeaderText = "Edit";
             editbtn.Name = "button";
@@ -64,7 +77,7 @@ namespace FYPManagementSytem
 
         private void picBxAddNew_Click(object sender, EventArgs e)
         {
-            GeneralID.selectedObjectid = 0;
+           
             Add_Advisor newAdvisor = new Add_Advisor();
             this.Hide();
             newAdvisor.Show();

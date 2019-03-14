@@ -19,7 +19,7 @@ namespace FYPManagementSytem
 
         private void picBxAddNew_Click(object sender, EventArgs e)
         {
-            GeneralID.selectedObjectid = 0;
+           
             Add_Student add_new =new  Add_Student();
             this.Hide();
             add_new.Show();
@@ -27,6 +27,18 @@ namespace FYPManagementSytem
         DataTable table = new DataTable();
         private void Show_Students_Load(object sender, EventArgs e)
         {
+            studentsGridView1.BorderStyle = BorderStyle.None;
+            studentsGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            studentsGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            studentsGridView1.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            studentsGridView1.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            studentsGridView1.BackgroundColor = Color.White;
+
+            studentsGridView1.EnableHeadersVisualStyles = false;
+            studentsGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            studentsGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            studentsGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+
             this.load_data_in_gridview();
 
             DataGridViewButtonColumn editbtn = new DataGridViewButtonColumn();

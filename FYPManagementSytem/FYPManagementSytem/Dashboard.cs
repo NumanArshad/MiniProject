@@ -77,5 +77,12 @@ namespace FYPManagementSytem
             this.Hide();
             MPA.Show();
         }
+
+        private void cmdManageEvaluations_Click(object sender, EventArgs e)
+        {
+            Show_Evaluations Evaluation = new Show_Evaluations();
+            this.Hide();
+            Evaluation.Show();
+        }
     }
 }

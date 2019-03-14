@@ -121,6 +121,7 @@ namespace FYPManagementSytem
                 }
                 DataBaseConnection.getInstance().executeQuery(queryUpdateAdvisor);
                 MessageBox.Show("Update Success");
+                GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
 
             }
 

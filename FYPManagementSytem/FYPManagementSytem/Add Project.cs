@@ -46,6 +46,7 @@ namespace FYPManagementSytem
                 string updateQuery= string.Format("update Project  set Title='{0}',Description='{1}' where Id='{2}'", txtBxTitle.Text,richTextBxDesc.Text, GeneralID.selectedObjectid);
                 DataBaseConnection.getInstance().executeQuery(updateQuery);
                 MessageBox.Show("Update Success");
+                GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
             }
             Show_Projects showProject = new Show_Projects();
             this.Hide();

@@ -39,6 +39,7 @@ namespace FYPManagementSytem
                     string queryStudent = string.Format("update Student  set RegistrationNo='{0}' where Id='{1}'", txtBxReg.Text,GeneralID.selectedObjectid);
                     DataBaseConnection.getInstance().executeQuery(queryStudent);
                     MessageBox.Show("Update Success");
+                    GeneralID.selectedObjectid = 0; //reset it to zero after successfull update
                 }
                 Show_Students showStudent = new Show_Students();
                 this.Hide();
