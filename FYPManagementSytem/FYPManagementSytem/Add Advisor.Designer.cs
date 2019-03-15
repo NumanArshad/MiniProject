@@ -106,9 +106,8 @@
             this.lblSalaryError.ForeColor = System.Drawing.Color.Red;
             this.lblSalaryError.Location = new System.Drawing.Point(399, 148);
             this.lblSalaryError.Name = "lblSalaryError";
-            this.lblSalaryError.Size = new System.Drawing.Size(35, 13);
+            this.lblSalaryError.Size = new System.Drawing.Size(0, 13);
             this.lblSalaryError.TabIndex = 31;
-            this.lblSalaryError.Text = "label5";
             // 
             // lblDesignationError
             // 
@@ -116,9 +115,8 @@
             this.lblDesignationError.ForeColor = System.Drawing.Color.Red;
             this.lblDesignationError.Location = new System.Drawing.Point(399, 97);
             this.lblDesignationError.Name = "lblDesignationError";
-            this.lblDesignationError.Size = new System.Drawing.Size(35, 13);
+            this.lblDesignationError.Size = new System.Drawing.Size(0, 13);
             this.lblDesignationError.TabIndex = 32;
-            this.lblDesignationError.Text = "label5";
             // 
             // Add_Advisor
             // 

@@ -108,19 +108,17 @@
             this.lblDescriptionError.ForeColor = System.Drawing.Color.Red;
             this.lblDescriptionError.Location = new System.Drawing.Point(504, 113);
             this.lblDescriptionError.Name = "lblDescriptionError";
-            this.lblDescriptionError.Size = new System.Drawing.Size(35, 13);
+            this.lblDescriptionError.Size = new System.Drawing.Size(0, 13);
             this.lblDescriptionError.TabIndex = 23;
-            this.lblDescriptionError.Text = "label5";
             // 
             // lblTitleError
             // 
             this.lblTitleError.AutoSize = true;
             this.lblTitleError.ForeColor = System.Drawing.Color.Red;
-            this.lblTitleError.Location = new System.Drawing.Point(504, 75);
+            this.lblTitleError.Location = new System.Drawing.Point(504, 74);
             this.lblTitleError.Name = "lblTitleError";
-            this.lblTitleError.Size = new System.Drawing.Size(35, 13);
+            this.lblTitleError.Size = new System.Drawing.Size(0, 13);
             this.lblTitleError.TabIndex = 24;
-            this.lblTitleError.Text = "label5";
             // 
             // Add_Project
             // 

@@ -20,14 +20,13 @@ namespace FYPManagementSytem
 
         private void cmdCreateGroup_Click(object sender, EventArgs e)
         {
-            //   MessageBox.Show(Convert.ToDateTime(DateTime.Now).ToString("yyyy-MM-dd"));
-            //  dateTime.ToString("dd/MM/yyyy")
-            var currentDateTime = DateTime.Now;//Convert.ToDateTime(DateTime.Now);
-          string queryGroup = string.Format("insert into Group1(Created_On) values('{0}')", currentDateTime.Date);
+            
+            var currentDateTime = DateTime.Now;
+          string queryGroup = string.Format("insert into [Group](Created_On) values('{0}')", currentDateTime.Date);
             DataBaseConnection.getInstance().executeQuery(queryGroup);
             foreach (Student st in StudentGroupDL.getInstance().getStudentGroup())
             {
-                string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from Group1),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
+                string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [Group]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
                 DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
                
 

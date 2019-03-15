@@ -191,7 +191,7 @@
             this.cmdSave.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdSave.Location = new System.Drawing.Point(330, 385);
+            this.cmdSave.Location = new System.Drawing.Point(330, 371);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(95, 33);
             this.cmdSave.TabIndex = 6;
@@ -204,7 +204,7 @@
             this.cmdCancel.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdCancel.Location = new System.Drawing.Point(194, 385);
+            this.cmdCancel.Location = new System.Drawing.Point(193, 371);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(94, 33);
             this.cmdCancel.TabIndex = 7;
@@ -218,39 +218,35 @@
             this.lblRegNoError.ForeColor = System.Drawing.Color.Red;
             this.lblRegNoError.Location = new System.Drawing.Point(499, 82);
             this.lblRegNoError.Name = "lblRegNoError";
-            this.lblRegNoError.Size = new System.Drawing.Size(35, 13);
+            this.lblRegNoError.Size = new System.Drawing.Size(0, 13);
             this.lblRegNoError.TabIndex = 8;
-            this.lblRegNoError.Text = "label5";
             // 
             // lblFirstNameError
             // 
             this.lblFirstNameError.AutoSize = true;
             this.lblFirstNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblFirstNameError.Location = new System.Drawing.Point(499, 117);
+            this.lblFirstNameError.Location = new System.Drawing.Point(499, 122);
             this.lblFirstNameError.Name = "lblFirstNameError";
-            this.lblFirstNameError.Size = new System.Drawing.Size(35, 13);
+            this.lblFirstNameError.Size = new System.Drawing.Size(0, 13);
             this.lblFirstNameError.TabIndex = 8;
-            this.lblFirstNameError.Text = "label5";
             // 
             // lblLastNameError
             // 
             this.lblLastNameError.AutoSize = true;
             this.lblLastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblLastNameError.Location = new System.Drawing.Point(499, 161);
+            this.lblLastNameError.Location = new System.Drawing.Point(499, 159);
             this.lblLastNameError.Name = "lblLastNameError";
-            this.lblLastNameError.Size = new System.Drawing.Size(35, 13);
+            this.lblLastNameError.Size = new System.Drawing.Size(0, 13);
             this.lblLastNameError.TabIndex = 8;
-            this.lblLastNameError.Text = "label5";
             // 
             // lblContactError
             // 
             this.lblContactError.AutoSize = true;
             this.lblContactError.ForeColor = System.Drawing.Color.Red;
-            this.lblContactError.Location = new System.Drawing.Point(499, 203);
+            this.lblContactError.Location = new System.Drawing.Point(499, 198);
             this.lblContactError.Name = "lblContactError";
-            this.lblContactError.Size = new System.Drawing.Size(35, 13);
+            this.lblContactError.Size = new System.Drawing.Size(0, 13);
             this.lblContactError.TabIndex = 8;
-            this.lblContactError.Text = "label5";
             // 
             // lblEmailError
             // 
@@ -258,29 +254,26 @@
             this.lblEmailError.ForeColor = System.Drawing.Color.Red;
             this.lblEmailError.Location = new System.Drawing.Point(499, 239);
             this.lblEmailError.Name = "lblEmailError";
-            this.lblEmailError.Size = new System.Drawing.Size(35, 13);
+            this.lblEmailError.Size = new System.Drawing.Size(0, 13);
             this.lblEmailError.TabIndex = 8;
-            this.lblEmailError.Text = "label5";
             // 
             // lblDOBError
             // 
             this.lblDOBError.AutoSize = true;
             this.lblDOBError.ForeColor = System.Drawing.Color.Red;
-            this.lblDOBError.Location = new System.Drawing.Point(499, 282);
+            this.lblDOBError.Location = new System.Drawing.Point(499, 278);
             this.lblDOBError.Name = "lblDOBError";
-            this.lblDOBError.Size = new System.Drawing.Size(35, 13);
+            this.lblDOBError.Size = new System.Drawing.Size(0, 13);
             this.lblDOBError.TabIndex = 8;
-            this.lblDOBError.Text = "label5";
             // 
             // lblGenderError
             // 
             this.lblGenderError.AutoSize = true;
             this.lblGenderError.ForeColor = System.Drawing.Color.Red;
-            this.lblGenderError.Location = new System.Drawing.Point(499, 320);
+            this.lblGenderError.Location = new System.Drawing.Point(499, 315);
             this.lblGenderError.Name = "lblGenderError";
-            this.lblGenderError.Size = new System.Drawing.Size(35, 13);
+            this.lblGenderError.Size = new System.Drawing.Size(0, 13);
             this.lblGenderError.TabIndex = 8;
-            this.lblGenderError.Text = "label5";
             // 
             // Add_Student
             // 

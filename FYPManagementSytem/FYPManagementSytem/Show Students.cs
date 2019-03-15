@@ -77,17 +77,24 @@ namespace FYPManagementSytem
             }
             else if (e.ColumnIndex == 9)
             {
-                int selectId = (int)row.Cells[0].Value;
-                string deleteStudentQuery = string.Format("delete Student where Id='{0}'", selectId);
-                DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+                DialogResult dr = MessageBox.Show("Are you sure want delete this Student", "Delete Student", MessageBoxButtons.OKCancel,
+       MessageBoxIcon.Question);
 
-               
-                string deletePersonQuery = string.Format("delete Person where Id='{0}'", selectId);
-                DataBaseConnection.getInstance().executeQuery(deletePersonQuery);
+                if (dr == DialogResult.OK)
+                {
+                    int selectId = (int)row.Cells[0].Value;
+                    string deleteStudentQuery = string.Format("delete Student where Id='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+
+
+                    string deletePersonQuery = string.Format("delete Person where Id='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deletePersonQuery);
+
+
+                    MessageBox.Show("Student deleted Successfully");
+                    this.load_data_in_gridview();
+                }
               
-
-                MessageBox.Show("Student deleted Successfully");
-                this.load_data_in_gridview();
 
             }
 
@@ -104,6 +111,92 @@ namespace FYPManagementSytem
             var lst = DataBaseConnection.getInstance().getAllData(query);
             lst.Fill(table);
             studentsGridView1.DataSource = table;
+        }
+
+        private void showProjectAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Project__Advisors projectAdvisor = new Manage_Project__Advisors();
+            this.Hide();
+            projectAdvisor.Show();
+        }
+
+    
+
+        private void showProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show_Projects showProject = new Show_Projects();
+            this.Hide();
+            showProject.Show();
+        }
+
+        private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Project addProject = new Add_Project();
+            this.Hide();
+            addProject.Show();
+        }
+
+        private void showAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Advisors manage_advisor = new Manage_Advisors();
+            this.Hide();
+            manage_advisor.Show();
+        }
+
+        private void addAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Advisor addAdvisor = new Add_Advisor();
+            this.Hide();
+            addAdvisor.Show();
+        }
+
+        private void showEvaluationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show_Evaluations Evaluation = new Show_Evaluations();
+            this.Hide();
+            Evaluation.Show();
+        }
+
+        private void addEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Evaluation addEvaluation = new Add_Evaluation();
+            this.Hide();
+            addEvaluation.Show();
+
+        }
+
+        private void showGroupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Student_Groups studentGroup = new Manage_Student_Groups();
+            this.Hide();
+            studentGroup.Show();
+        }
+
+        private void createGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Make_Group createGroup = new Make_Group();
+            this.Hide();
+            createGroup.Show();
+        }
+    private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Project groupProject = new Manage_Group_Project();
+            this.Hide();
+            groupProject.Show();
+        }
+
+        private void manageProjectAdvisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Project__Advisors projectAdvisor = new Manage_Project__Advisors();
+            this.Hide();
+            projectAdvisor.Show();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
         }
     }
 }

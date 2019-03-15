@@ -79,7 +79,7 @@ namespace FYPManagementSytem
         int selectedrow;
         private void projectsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            selectedrow = projectsGridView.CurrentCell.RowIndex;
             DataGridViewRow row = projectsGridView.Rows[selectedrow];
 
             if (e.ColumnIndex == 3)
@@ -91,14 +91,117 @@ namespace FYPManagementSytem
             }
             else if (e.ColumnIndex == 4)
             {
-                int selectId = (int)row.Cells[0].Value;
-                string deleteStudentQuery = string.Format("delete Project where Id='{0}'", selectId);
-                DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+                DialogResult dr = MessageBox.Show("Are you sure want delete this Project", "Delete Project", MessageBoxButtons.OKCancel,
+    MessageBoxIcon.Question);
 
-                MessageBox.Show("Project deleted Successfully");
-                this.load_data_in_gridview();
+                if (dr == DialogResult.OK)
+                {
+                    int selectId = (int)row.Cells[0].Value;
+                    string deleteStudentQuery = string.Format("delete Project where Id='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+
+                    MessageBox.Show("Project deleted Successfully");
+                    this.load_data_in_gridview();
+
+                }
 
             }
+        }
+
+
+
+
+        private void showProjectAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Project__Advisors projectAdvisor = new Manage_Project__Advisors();
+            this.Hide();
+            projectAdvisor.Show();
+        }
+
+        private void showStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show_Students showStudent = new Show_Students();
+            this.Hide();
+            showStudent.Show();
+        }
+
+        private void addStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Student addStudent = new Add_Student();
+            this.Hide();
+            addStudent.Show();
+        }
+
+  
+
+        private void showAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Advisors manage_advisor = new Manage_Advisors();
+            this.Hide();
+            manage_advisor.Show();
+        }
+
+        private void addAdvisorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Advisor addAdvisor = new Add_Advisor();
+            this.Hide();
+            addAdvisor.Show();
+        }
+
+        private void showEvaluationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show_Evaluations Evaluation = new Show_Evaluations();
+            this.Hide();
+            Evaluation.Show();
+        }
+
+        private void addEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Add_Evaluation addEvaluation = new Add_Evaluation();
+            this.Hide();
+            addEvaluation.Show();
+
+        }
+
+        private void showGroupsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Student_Groups studentGroup = new Manage_Student_Groups();
+            this.Hide();
+            studentGroup.Show();
+        }
+
+        private void createGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Make_Group createGroup = new Make_Group();
+            this.Hide();
+            createGroup.Show();
+        }
+
+
+
+
+
+
+
+        private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Project groupProject = new Manage_Group_Project();
+            this.Hide();
+            groupProject.Show();
+        }
+
+        private void manageProjectAdvisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Project__Advisors projectAdvisor = new Manage_Project__Advisors();
+            this.Hide();
+            projectAdvisor.Show();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
         }
     }
 }

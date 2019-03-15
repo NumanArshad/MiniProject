@@ -46,7 +46,7 @@ namespace FYPManagementSytem
                 cmbBxProjects.Items.Add(titledata.GetString(0));
             }
 
-            string queryGroups = "select Id from Group1 where not Exists(select * from GroupProject where GroupId=Group1.Id)";
+            string queryGroups = "select Id from [Group] where not Exists(select * from GroupProject where GroupId=[Group].Id)";
             var groupdata = DataBaseConnection.getInstance().readData(queryGroups);
             while (groupdata.Read())
             {

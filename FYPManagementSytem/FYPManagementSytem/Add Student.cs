@@ -99,7 +99,7 @@ namespace FYPManagementSytem
                 lblContactError.Text = "Invalid Contact Number";
                 invalid = true;
             }
-            if (txtBxEmail.Text == "" || txtBxEmail.Text.Count() < 13 || !match.Success) //txtBxEmail.Text.Substring(txtBxEmail.Text.Count() - 10, 10) == "@gmail.com"
+            if (txtBxEmail.Text == "" || txtBxEmail.Text.Count() < 13 || !match.Success) 
             {
                 lblEmailError.Text = "Invalid Email";
                 invalid = true;

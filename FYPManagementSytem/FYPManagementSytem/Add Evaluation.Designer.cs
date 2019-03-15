@@ -71,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 79);
+            this.label1.Location = new System.Drawing.Point(122, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 25;
@@ -89,7 +89,7 @@
             // 
             this.txtBxTotalMarks.AutoSize = true;
             this.txtBxTotalMarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxTotalMarks.Location = new System.Drawing.Point(69, 136);
+            this.txtBxTotalMarks.Location = new System.Drawing.Point(81, 136);
             this.txtBxTotalMarks.Name = "txtBxTotalMarks";
             this.txtBxTotalMarks.Size = new System.Drawing.Size(90, 16);
             this.txtBxTotalMarks.TabIndex = 29;
@@ -107,7 +107,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(36, 196);
+            this.label3.Location = new System.Drawing.Point(48, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 16);
             this.label3.TabIndex = 31;
@@ -127,9 +127,8 @@
             this.lblTotalWeightageError.ForeColor = System.Drawing.Color.Red;
             this.lblTotalWeightageError.Location = new System.Drawing.Point(503, 196);
             this.lblTotalWeightageError.Name = "lblTotalWeightageError";
-            this.lblTotalWeightageError.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalWeightageError.Size = new System.Drawing.Size(0, 13);
             this.lblTotalWeightageError.TabIndex = 32;
-            this.lblTotalWeightageError.Text = "label5";
             // 
             // lblNameError
             // 
@@ -137,9 +136,8 @@
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
             this.lblNameError.Location = new System.Drawing.Point(503, 79);
             this.lblNameError.Name = "lblNameError";
-            this.lblNameError.Size = new System.Drawing.Size(35, 13);
+            this.lblNameError.Size = new System.Drawing.Size(0, 13);
             this.lblNameError.TabIndex = 33;
-            this.lblNameError.Text = "label5";
             // 
             // lblTotalMarksError
             // 
@@ -147,9 +145,8 @@
             this.lblTotalMarksError.ForeColor = System.Drawing.Color.Red;
             this.lblTotalMarksError.Location = new System.Drawing.Point(503, 140);
             this.lblTotalMarksError.Name = "lblTotalMarksError";
-            this.lblTotalMarksError.Size = new System.Drawing.Size(35, 13);
+            this.lblTotalMarksError.Size = new System.Drawing.Size(0, 13);
             this.lblTotalMarksError.TabIndex = 34;
-            this.lblTotalMarksError.Text = "label5";
             // 
             // Add_Evaluation
             // 
