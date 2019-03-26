@@ -35,11 +35,10 @@ namespace FYPManagementSytem
                 
                 string queryAdvisor = "select count(Id) from Advisor";
                 int countAdvisor = DataBaseConnection.getInstance().getRowsCount(queryAdvisor);
+                string queryGroup = "select count(Id) from [[Group]]]";
+                                int countGroup = DataBaseConnection.getInstance().getRowsCount(queryGroup);
 
-                /*                string queryGroup = "select count(Id) from Student";
-                                int countStudent = DataBaseConnection.getInstance().getRowsCount(queryStudent);
-
-                                string queryProject = "select count(Id) from Project";
+                               /* string queryProject = "select count(Id) from Project";
                                 int countProject = DataBaseConnection.getInstance().getRowsCount(queryProject);
 
                                 string queryAdvisor = "select count(Id) from Advisor";
@@ -48,7 +47,8 @@ namespace FYPManagementSytem
                 lblCountStudent.Text = countStudent.ToString();
                 lblCountProject.Text = countProject.ToString();
                 lblCountAdvisor.Text = countAdvisor.ToString();
-                MessageBox.Show(lblCountProject.ToString());
+                lblCountGroup.Text= countGroup.ToString();
+                MessageBox.Show(countGroup.ToString());
               //  lblCountSelectedProject.Text = 
 
 
@@ -139,13 +139,7 @@ namespace FYPManagementSytem
             createGroup.Show();
         }
 
-      
-
-      
-
-       
-
-        private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
+       private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Manage_Group_Project groupProject = new Manage_Group_Project();
             this.Hide();

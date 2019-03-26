@@ -20,24 +20,55 @@ namespace FYPManagementSytem
 
         private void cmdCreateGroup_Click(object sender, EventArgs e)
         {
-            
             var currentDateTime = DateTime.Now;
-          string queryGroup = string.Format("insert into [Group](Created_On) values('{0}')", currentDateTime.Date);
-            DataBaseConnection.getInstance().executeQuery(queryGroup);
-            foreach (Student st in StudentGroupDL.getInstance().getStudentGroup())
+            if (!is_editMode())
             {
-                string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [Group]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
-                DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
-               
+                
+                string queryGroup = string.Format("insert into [[Group]]](Created_On) values('{0}')", currentDateTime.Date);
+                DataBaseConnection.getInstance().executeQuery(queryGroup);
+                foreach (Student st in newGroupStudents)  //StudentGroupDL.getInstance().getStudentGroup()
+                {
+                    string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [[Group]]]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
+                    DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
 
+                }
+
+                MessageBox.Show("Insert success");
+            }
+            else
+            {
+                //group member status
+                string statusQuery = "select Status from GroupStudent where GroupId=" + GeneralID.selectedObjectid + "";
+                var getStatus = DataBaseConnection.getInstance().readData(statusQuery);
+                getStatus.Read();
+                int countStatusValue = (int)getStatus.GetValue(0);
+                foreach (Student st in newGroupStudents)  //StudentGroupDL.getInstance().getStudentGroup()
+                {
+                    string countExistQuery = string.Format("select count(StudentId) from GroupStudent where StudentId='{0}'", st.Id);
+                   
+                    int countStudentInGroup = DataBaseConnection.getInstance().getRowsCount(countExistQuery);
+               //     MessageBox.Show(countStudentInGroup.ToString());
+                         if (countStudentInGroup == 0)
+                          {
+                              MessageBox.Show("new added in prev");
+                              string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values('{0}','{1}','{2}','{3}')", GeneralID.selectedObjectid,st.Id, countStatusValue, currentDateTime);
+                              DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
+
+                          }
+
+
+                }
+                MessageBox.Show("update success");
+                GeneralID.selectedObjectid = 0;
             }
 
-            StudentGroupDL.getInstance().getStudentGroup().Clear();
-            Manage_Student_Groups msg = new Manage_Student_Groups();
-            this.Hide();
-            msg.Show();
 
-        }
+            //  StudentGroupDL.getInstance().getStudentGroup().Clear();
+            Manage_Student_Groups msg = new Manage_Student_Groups();
+                this.Hide();
+                msg.Show();
+
+            }
       /*  public bool IsFormOpen(Type formType)
         {
             foreach (Form form in Application.OpenForms)
@@ -79,7 +110,7 @@ namespace FYPManagementSytem
             txtBxSearchStudent.AutoCompleteCustomSource = col;*/
 
         }
-
+        List<Student> newGroupStudents;
         private void Make_Group_Load(object sender, EventArgs e)
         {
           //  string autotextQuery = "select RegistrationNo from Student where RegistrationNo like RegistrationNo";
@@ -93,6 +124,25 @@ namespace FYPManagementSytem
             txtBxSearchStudent.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtBxSearchStudent.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txtBxSearchStudent.AutoCompleteCustomSource = col;
+
+              newGroupStudents = new List<Student>();
+
+            if (is_editMode())
+            {
+                string groupQuery = string.Format("select Student.Id,Student.RegistrationNo from Student join GroupStudent on GroupStudent.GroupId='{0}' and Student.Id=GroupStudent.StudentId", GeneralID.selectedObjectid);
+                var readStudent = DataBaseConnection.getInstance().readData(groupQuery);
+
+                while (readStudent.Read())
+                {
+                    Student st = new Student();
+                    st.Id = (int)readStudent.GetValue(0);
+                    st.RegNo = readStudent.GetValue(1).ToString();
+                    newGroupStudents.Add(st);
+                }
+                BindingSource bind = new BindingSource();
+                bind.DataSource = newGroupStudents;//StudentGroupDL.getInstance().getStudentGroup();
+                studentGroupGridView.DataSource = bind;
+            }
         }
 
         DataTable table = new DataTable();
@@ -103,12 +153,25 @@ namespace FYPManagementSytem
             Student student = new Student();
             student.Id = studentId;
             student.RegNo = txtBxSearchStudent.Text;
-         //   student.FirstName1 = null;
-            StudentGroupDL.getInstance().addStudent(student);
+            //   student.FirstName1 = null;
+            //      StudentGroupDL.getInstance().addStudent(student);
+          
+            newGroupStudents.Add(student);
             BindingSource bind = new BindingSource();
-            bind.DataSource = StudentGroupDL.getInstance().getStudentGroup();
+            bind.DataSource = newGroupStudents;//StudentGroupDL.getInstance().getStudentGroup();
             studentGroupGridView.DataSource = bind;
             txtBxSearchStudent.Clear();
+        }
+        private Boolean is_editMode()
+        {
+            bool EditMode = false;
+            if (GeneralID.selectedObjectid != 0)
+            {
+                // MessageBox.Show(GeneralID.selectedObjectid.ToString());
+                EditMode = true;
+            }
+            return EditMode;
+
         }
     }
 }
