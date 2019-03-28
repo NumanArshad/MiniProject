@@ -203,5 +203,22 @@ namespace FYPManagementSytem
             this.Hide();
             dashboard.Show();
         }
+
+        private void manageGroupEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Evaluations groupEvaluation = new Manage_Group_Evaluations();
+            this.Hide();
+            groupEvaluation.Show();
+        }
+
+        private void manageEvaluationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.projectsGridView = new System.Windows.Forms.DataGridView();
-            this.picBxAddNew = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,57 +50,45 @@
             this.showProjectGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProjectAdvisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.picBxAddNew = new System.Windows.Forms.PictureBox();
+            this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.projectsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.SuspendLayout();
             // 
             // projectsGridView
             // 
             this.projectsGridView.AllowUserToAddRows = false;
             this.projectsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.projectsGridView.ColumnHeadersHeight = 25;
             this.projectsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.projectsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.projectsGridView.Location = new System.Drawing.Point(0, 119);
             this.projectsGridView.Name = "projectsGridView";
             this.projectsGridView.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.projectsGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.projectsGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.projectsGridView.Size = new System.Drawing.Size(820, 235);
             this.projectsGridView.TabIndex = 2;
             this.projectsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectsGridView_CellContentClick);
-            // 
-            // picBxAddNew
-            // 
-            this.picBxAddNew.Image = global::FYPManagementSytem.Properties.Resources.if_plus_sign_173078__3_;
-            this.picBxAddNew.Location = new System.Drawing.Point(167, 62);
-            this.picBxAddNew.Name = "picBxAddNew";
-            this.picBxAddNew.Size = new System.Drawing.Size(29, 27);
-            this.picBxAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBxAddNew.TabIndex = 3;
-            this.picBxAddNew.TabStop = false;
-            this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
             // 
             // menuStrip1
             // 
@@ -113,12 +100,13 @@
             this.studentGroupsToolStripMenuItem,
             this.assignProjectToolStripMenuItem,
             this.manageGroupEvaluationToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.groupEvaluationReportPreviewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(820, 24);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // homeToolStripMenuItem
             // 
@@ -181,6 +169,7 @@
             this.manageEvaluationsToolStripMenuItem.Name = "manageEvaluationsToolStripMenuItem";
             this.manageEvaluationsToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
             this.manageEvaluationsToolStripMenuItem.Text = "Manage Evaluations";
+            this.manageEvaluationsToolStripMenuItem.Click += new System.EventHandler(this.manageEvaluationsToolStripMenuItem_Click);
             // 
             // showEvaluationsToolStripMenuItem
             // 
@@ -244,30 +233,10 @@
             // 
             // manageGroupEvaluationToolStripMenuItem
             // 
-            this.manageGroupEvaluationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showGroupEvaluationToolStripMenuItem,
-            this.takeGroupEvaluationToolStripMenuItem});
             this.manageGroupEvaluationToolStripMenuItem.Name = "manageGroupEvaluationToolStripMenuItem";
-            this.manageGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
-            this.manageGroupEvaluationToolStripMenuItem.Text = "Manage Group Evaluation";
-            // 
-            // showGroupEvaluationToolStripMenuItem
-            // 
-            this.showGroupEvaluationToolStripMenuItem.Name = "showGroupEvaluationToolStripMenuItem";
-            this.showGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.showGroupEvaluationToolStripMenuItem.Text = "Show Group Evaluations";
-            // 
-            // takeGroupEvaluationToolStripMenuItem
-            // 
-            this.takeGroupEvaluationToolStripMenuItem.Name = "takeGroupEvaluationToolStripMenuItem";
-            this.takeGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.takeGroupEvaluationToolStripMenuItem.Text = "Take Group Evaluation";
-            // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.reportsToolStripMenuItem.Text = "Reports";
+            this.manageGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.manageGroupEvaluationToolStripMenuItem.Text = "Report";
+            this.manageGroupEvaluationToolStripMenuItem.Click += new System.EventHandler(this.manageGroupEvaluationToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -278,6 +247,23 @@
             this.label1.Size = new System.Drawing.Size(96, 24);
             this.label1.TabIndex = 12;
             this.label1.Text = "Add New";
+            // 
+            // picBxAddNew
+            // 
+            this.picBxAddNew.Image = global::FYPManagementSytem.Properties.Resources.if_plus_sign_173078__3_;
+            this.picBxAddNew.Location = new System.Drawing.Point(167, 62);
+            this.picBxAddNew.Name = "picBxAddNew";
+            this.picBxAddNew.Size = new System.Drawing.Size(29, 27);
+            this.picBxAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBxAddNew.TabIndex = 3;
+            this.picBxAddNew.TabStop = false;
+            this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
+            // 
+            // groupEvaluationReportPreviewToolStripMenuItem
+            // 
+            this.groupEvaluationReportPreviewToolStripMenuItem.Name = "groupEvaluationReportPreviewToolStripMenuItem";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(192, 20);
+            this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
             // 
             // Show_Projects
             // 
@@ -293,9 +279,9 @@
             this.Text = "Show Projects";
             this.Load += new System.EventHandler(this.Show_Projects_Load);
             ((System.ComponentModel.ISupportInitialize)(this.projectsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,9 +308,7 @@
         private System.Windows.Forms.ToolStripMenuItem showProjectGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageProjectAdvisorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem takeGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem groupEvaluationReportPreviewToolStripMenuItem;
     }
 }

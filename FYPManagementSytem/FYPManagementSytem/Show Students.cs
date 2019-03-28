@@ -83,6 +83,9 @@ namespace FYPManagementSytem
                 if (dr == DialogResult.OK)
                 {
                     int selectId = (int)row.Cells[0].Value;
+
+                    string deleteStudentGroup = string.Format("delete GroupStudent where StudentId='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deleteStudentGroup);
                     string deleteStudentQuery = string.Format("delete Student where Id='{0}'", selectId);
                     DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
 
@@ -198,5 +201,31 @@ namespace FYPManagementSytem
             this.Hide();
             dashboard.Show();
         }
+
+        private void manageGroupEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Evaluations groupEvaluation = new Manage_Group_Evaluations();
+            this.Hide();
+            groupEvaluation.Show();
+        }
+
+        private void assignProjectsReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Project_Students_AdvisorBoard_Report_Preview det = new Project_Students_AdvisorBoard_Report_Preview();
+            this.Hide();
+            det.Show();
+
+        }
+
+      
+    
+
+        private void groupEvaluationReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evaluations_Report_Preview det = new Evaluations_Report_Preview();
+            this.Hide();
+            det.Show();
+        }
+
     }
 }

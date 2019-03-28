@@ -28,17 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbBxProjects = new System.Windows.Forms.ComboBox();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.cmbBxAdvisors = new System.Windows.Forms.ComboBox();
             this.projectAdvisorGridView = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.cmbBxAdvisorRoles = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,26 +56,20 @@
             this.showProjectGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProjectAdvisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.assignProjectsReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.projectAdvisorGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(231, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Select Project";
-            // 
             // cmbBxProjects
             // 
             this.cmbBxProjects.FormattingEnabled = true;
-            this.cmbBxProjects.Location = new System.Drawing.Point(319, 86);
+            this.cmbBxProjects.Location = new System.Drawing.Point(337, 86);
             this.cmbBxProjects.Name = "cmbBxProjects";
             this.cmbBxProjects.Size = new System.Drawing.Size(100, 21);
             this.cmbBxProjects.TabIndex = 43;
@@ -88,7 +78,7 @@
             // 
             this.cmdSave.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdSave.Location = new System.Drawing.Point(701, 89);
+            this.cmdSave.Location = new System.Drawing.Point(735, 89);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(100, 33);
             this.cmdSave.TabIndex = 42;
@@ -96,19 +86,10 @@
             this.cmdSave.UseVisualStyleBackColor = false;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 13);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Select Advisor";
-            // 
             // cmbBxAdvisors
             // 
             this.cmbBxAdvisors.FormattingEnabled = true;
-            this.cmbBxAdvisors.Location = new System.Drawing.Point(102, 86);
+            this.cmbBxAdvisors.Location = new System.Drawing.Point(120, 86);
             this.cmbBxAdvisors.Name = "cmbBxAdvisors";
             this.cmbBxAdvisors.Size = new System.Drawing.Size(100, 21);
             this.cmbBxAdvisors.TabIndex = 40;
@@ -117,24 +98,24 @@
             // 
             this.projectAdvisorGridView.AllowUserToAddRows = false;
             this.projectAdvisorGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectAdvisorGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectAdvisorGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.projectAdvisorGridView.ColumnHeadersHeight = 25;
             this.projectAdvisorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.projectAdvisorGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.projectAdvisorGridView.DefaultCellStyle = dataGridViewCellStyle12;
             this.projectAdvisorGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.projectAdvisorGridView.Location = new System.Drawing.Point(0, 152);
             this.projectAdvisorGridView.Name = "projectAdvisorGridView";
@@ -143,32 +124,13 @@
             this.projectAdvisorGridView.TabIndex = 39;
             this.projectAdvisorGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectAdvisorGridView_CellContentClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(467, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Advisor Role";
-            // 
             // cmbBxAdvisorRoles
             // 
             this.cmbBxAdvisorRoles.FormattingEnabled = true;
-            this.cmbBxAdvisorRoles.Location = new System.Drawing.Point(555, 89);
+            this.cmbBxAdvisorRoles.Location = new System.Drawing.Point(569, 89);
             this.cmbBxAdvisorRoles.Name = "cmbBxAdvisorRoles";
             this.cmbBxAdvisorRoles.Size = new System.Drawing.Size(100, 21);
             this.cmbBxAdvisorRoles.TabIndex = 45;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(118, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -193,6 +155,7 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // manageStudentsToolStripMenuItem
             // 
@@ -334,30 +297,63 @@
             // 
             // manageGroupEvaluationToolStripMenuItem
             // 
-            this.manageGroupEvaluationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showGroupEvaluationToolStripMenuItem,
-            this.takeGroupEvaluationToolStripMenuItem});
             this.manageGroupEvaluationToolStripMenuItem.Name = "manageGroupEvaluationToolStripMenuItem";
             this.manageGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
             this.manageGroupEvaluationToolStripMenuItem.Text = "Manage Group Evaluation";
-            // 
-            // showGroupEvaluationToolStripMenuItem
-            // 
-            this.showGroupEvaluationToolStripMenuItem.Name = "showGroupEvaluationToolStripMenuItem";
-            this.showGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.showGroupEvaluationToolStripMenuItem.Text = "Show Group Evaluations";
-            // 
-            // takeGroupEvaluationToolStripMenuItem
-            // 
-            this.takeGroupEvaluationToolStripMenuItem.Name = "takeGroupEvaluationToolStripMenuItem";
-            this.takeGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.takeGroupEvaluationToolStripMenuItem.Text = "Take Group Evaluation";
+            this.manageGroupEvaluationToolStripMenuItem.Click += new System.EventHandler(this.manageGroupEvaluationToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assignProjectsReportPreviewToolStripMenuItem,
+            this.groupEvaluationReportPreviewToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // assignProjectsReportPreviewToolStripMenuItem
+            // 
+            this.assignProjectsReportPreviewToolStripMenuItem.Name = "assignProjectsReportPreviewToolStripMenuItem";
+            this.assignProjectsReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.assignProjectsReportPreviewToolStripMenuItem.Text = "Assign Projects Report Preview";
+            this.assignProjectsReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.assignProjectsReportPreviewToolStripMenuItem_Click);
+            // 
+            // groupEvaluationReportPreviewToolStripMenuItem
+            // 
+            this.groupEvaluationReportPreviewToolStripMenuItem.Name = "groupEvaluationReportPreviewToolStripMenuItem";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.groupEvaluationReportPreviewToolStripMenuItem_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(5, 91);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 16);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Select Advisor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(226, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 16);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Select Project";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(465, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Advisor Role";
             // 
             // Manage_Project__Advisors
             // 
@@ -365,14 +361,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(982, 445);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbBxAdvisorRoles);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.cmbBxAdvisorRoles);
             this.Controls.Add(this.cmbBxProjects);
             this.Controls.Add(this.cmdSave);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbBxAdvisors);
             this.Controls.Add(this.projectAdvisorGridView);
             this.Name = "Manage_Project__Advisors";
@@ -387,16 +382,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBxProjects;
         private System.Windows.Forms.Button cmdSave;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbBxAdvisors;
         private System.Windows.Forms.DataGridView projectAdvisorGridView;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbBxAdvisorRoles;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageStudentsToolStripMenuItem;
@@ -418,8 +408,11 @@
         private System.Windows.Forms.ToolStripMenuItem showProjectGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageProjectAdvisorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem takeGroupEvaluationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem assignProjectsReportPreviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupEvaluationReportPreviewToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

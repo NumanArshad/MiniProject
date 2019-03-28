@@ -77,12 +77,24 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBaseConnection.cs" />
+    <Compile Include="Evaluations Report  Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evaluations Report  Preview.Designer.cs">
+      <DependentUpon>Evaluations Report  Preview.cs</DependentUpon>
+    </Compile>
     <Compile Include="GeneralID.cs" />
     <Compile Include="Manage Advisors.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Manage Advisors.Designer.cs">
       <DependentUpon>Manage Advisors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage Group Evaluations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage Group Evaluations.Designer.cs">
+      <DependentUpon>Manage Group Evaluations.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage Group Project.cs">
       <SubType>Form</SubType>
@@ -106,6 +118,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectADataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Project_Students_AdvisorBoard Report Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project_Students_AdvisorBoard Report Preview.Designer.cs">
+      <DependentUpon>Project_Students_AdvisorBoard Report Preview.cs</DependentUpon>
     </Compile>
     <Compile Include="Show Evaluations.cs">
       <SubType>Form</SubType>
@@ -156,14 +174,23 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Evaluations Report  Preview.resx">
+      <DependentUpon>Evaluations Report  Preview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manage Advisors.resx">
       <DependentUpon>Manage Advisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage Group Evaluations.resx">
+      <DependentUpon>Manage Group Evaluations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Group Project.resx">
       <DependentUpon>Manage Group Project.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage Project  Advisors.resx">
       <DependentUpon>Manage Project  Advisors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project_Students_AdvisorBoard Report Preview.resx">
+      <DependentUpon>Project_Students_AdvisorBoard Report Preview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Show Evaluations.resx">
       <DependentUpon>Show Evaluations.cs</DependentUpon>

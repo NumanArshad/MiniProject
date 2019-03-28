@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             this.studentGroupGridView = new System.Windows.Forms.DataGridView();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.cmdAddInGroup = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtBxSearchStudent = new System.Windows.Forms.TextBox();
             this.cmdCreateGroup = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentGroupGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,37 +49,6 @@
             this.studentGroupGridView.Size = new System.Drawing.Size(488, 137);
             this.studentGroupGridView.TabIndex = 4;
             // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(286, 62);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(64, 17);
-            this.radioButton2.TabIndex = 38;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "InActive";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(203, 62);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(55, 17);
-            this.radioButton1.TabIndex = 37;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Active";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Status";
-            // 
             // cmdAddInGroup
             // 
             this.cmdAddInGroup.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -94,15 +60,6 @@
             this.cmdAddInGroup.Text = "Add in Group";
             this.cmdAddInGroup.UseVisualStyleBackColor = false;
             this.cmdAddInGroup.Click += new System.EventHandler(this.cmdAddInGroup_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Select Student";
             // 
             // txtBxSearchStudent
             // 
@@ -136,20 +93,27 @@
             this.cmdCancel.UseVisualStyleBackColor = false;
             this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(44, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Search Student";
+            // 
             // Make_Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(660, 388);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdCreateGroup);
             this.Controls.Add(this.txtBxSearchStudent);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdAddInGroup);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.studentGroupGridView);
             this.Name = "Make_Group";
             this.Text = "Make Group";
@@ -162,13 +126,10 @@
 
         #endregion
         private System.Windows.Forms.DataGridView studentGroupGridView;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmdAddInGroup;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBxSearchStudent;
         private System.Windows.Forms.Button cmdCreateGroup;
         private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Label label2;
     }
 }

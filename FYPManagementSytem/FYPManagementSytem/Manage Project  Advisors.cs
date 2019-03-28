@@ -251,5 +251,34 @@ namespace FYPManagementSytem
 
             }
         }
+
+        private void manageGroupEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Evaluations groupEvaluation = new Manage_Group_Evaluations();
+            this.Hide();
+            groupEvaluation.Show();
+        }
+
+        private void assignProjectsReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Project_Students_AdvisorBoard_Report_Preview det = new Project_Students_AdvisorBoard_Report_Preview();
+            this.Hide();
+            det.Show();
+        }
+
+        private void groupEvaluationReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evaluations_Report_Preview det = new Evaluations_Report_Preview();
+            this.Hide();
+            det.Show();
+
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
+        }
     }
 }

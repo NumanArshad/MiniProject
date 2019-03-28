@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace FYPManagementSytem
 {
     public partial class Add_Advisor : Form
@@ -16,6 +15,7 @@ namespace FYPManagementSytem
         {
             InitializeComponent();
         }
+        
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {
@@ -24,7 +24,8 @@ namespace FYPManagementSytem
             this.Hide();
             showAdvisor.Show();
         }
-
+      
+       
         private void Add_Advisor_Load(object sender, EventArgs e)
         {
             string designationQuery = "select Value from Lookup where Category='DESIGNATION'";//"select Value from Lookup where Id BETWEEN 6 and 10";
@@ -80,6 +81,8 @@ namespace FYPManagementSytem
                     string queryProject = "";
                     try
                     {
+                       
+                      
                         int maxId;
                         string querymx = "select max(Id) from Advisor";
                         maxId = DataBaseConnection.getInstance().getRowsCount(querymx) + 1;

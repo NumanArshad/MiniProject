@@ -35,7 +35,6 @@
             this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
             this.advisorTableAdapter = new FYPManagementSytem.ProjectADataSetTableAdapters.AdvisorTableAdapter();
-            this.picBxAddNew = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,15 +53,16 @@
             this.showProjectGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageProjectAdvisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.picBxAddNew = new System.Windows.Forms.PictureBox();
+            this.assignProjectsReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).BeginInit();
             this.SuspendLayout();
             // 
             // advisorsGridView
@@ -108,17 +108,6 @@
             // advisorTableAdapter
             // 
             this.advisorTableAdapter.ClearBeforeFill = true;
-            // 
-            // picBxAddNew
-            // 
-            this.picBxAddNew.Image = global::FYPManagementSytem.Properties.Resources.if_plus_sign_173078__3_;
-            this.picBxAddNew.Location = new System.Drawing.Point(147, 57);
-            this.picBxAddNew.Name = "picBxAddNew";
-            this.picBxAddNew.Size = new System.Drawing.Size(29, 27);
-            this.picBxAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.picBxAddNew.TabIndex = 49;
-            this.picBxAddNew.TabStop = false;
-            this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
             // 
             // menuStrip1
             // 
@@ -261,27 +250,16 @@
             // 
             // manageGroupEvaluationToolStripMenuItem
             // 
-            this.manageGroupEvaluationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showGroupEvaluationToolStripMenuItem,
-            this.takeGroupEvaluationToolStripMenuItem});
             this.manageGroupEvaluationToolStripMenuItem.Name = "manageGroupEvaluationToolStripMenuItem";
             this.manageGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(156, 20);
             this.manageGroupEvaluationToolStripMenuItem.Text = "Manage Group Evaluation";
-            // 
-            // showGroupEvaluationToolStripMenuItem
-            // 
-            this.showGroupEvaluationToolStripMenuItem.Name = "showGroupEvaluationToolStripMenuItem";
-            this.showGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.showGroupEvaluationToolStripMenuItem.Text = "Show Group Evaluations";
-            // 
-            // takeGroupEvaluationToolStripMenuItem
-            // 
-            this.takeGroupEvaluationToolStripMenuItem.Name = "takeGroupEvaluationToolStripMenuItem";
-            this.takeGroupEvaluationToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.takeGroupEvaluationToolStripMenuItem.Text = "Take Group Evaluation";
+            this.manageGroupEvaluationToolStripMenuItem.Click += new System.EventHandler(this.manageGroupEvaluationToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.assignProjectsReportPreviewToolStripMenuItem,
+            this.groupEvaluationReportPreviewToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -295,6 +273,31 @@
             this.label1.Size = new System.Drawing.Size(96, 24);
             this.label1.TabIndex = 51;
             this.label1.Text = "Add New";
+            // 
+            // picBxAddNew
+            // 
+            this.picBxAddNew.Image = global::FYPManagementSytem.Properties.Resources.if_plus_sign_173078__3_;
+            this.picBxAddNew.Location = new System.Drawing.Point(147, 57);
+            this.picBxAddNew.Name = "picBxAddNew";
+            this.picBxAddNew.Size = new System.Drawing.Size(29, 27);
+            this.picBxAddNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picBxAddNew.TabIndex = 49;
+            this.picBxAddNew.TabStop = false;
+            this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
+            // 
+            // assignProjectsReportPreviewToolStripMenuItem
+            // 
+            this.assignProjectsReportPreviewToolStripMenuItem.Name = "assignProjectsReportPreviewToolStripMenuItem";
+            this.assignProjectsReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.assignProjectsReportPreviewToolStripMenuItem.Text = "Assign Projects Report Preview";
+            this.assignProjectsReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.assignProjectsReportPreviewToolStripMenuItem_Click);
+            // 
+            // groupEvaluationReportPreviewToolStripMenuItem
+            // 
+            this.groupEvaluationReportPreviewToolStripMenuItem.Name = "groupEvaluationReportPreviewToolStripMenuItem";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.groupEvaluationReportPreviewToolStripMenuItem_Click);
             // 
             // Manage_Advisors
             // 
@@ -312,9 +315,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBxAddNew)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,9 +348,9 @@
         private System.Windows.Forms.ToolStripMenuItem showProjectGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageProjectAdvisorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showGroupEvaluationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem takeGroupEvaluationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem assignProjectsReportPreviewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem groupEvaluationReportPreviewToolStripMenuItem;
     }
 }

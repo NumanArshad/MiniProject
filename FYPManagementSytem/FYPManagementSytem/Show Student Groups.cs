@@ -97,6 +97,17 @@ namespace FYPManagementSytem
                     string deleteStudentQuery = string.Format("delete GroupStudent where StudentId=(select Id from Student where RegistrationNo='{0}')", selectStudent);
                     DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
 
+                    //if group students delete then total group remove 
+                    string query = string.Format("select count(StudentId) from GroupStudent where StudentId='{0}'", selectStudent);
+                    int countStudent = DataBaseConnection.getInstance().getRowsCount(query);
+                    if (countStudent == 0)
+                    {
+                        int groupId= (int)row.Cells[0].Value;
+                        string deleteTotalGroup = string.Format("delete [[Group]]] where Id='{0}'", groupId);
+                        DataBaseConnection.getInstance().executeQuery(deleteTotalGroup);
+                        MessageBox.Show("Total group remove as Group Empty");
+                    }
+
                     MessageBox.Show("Student Remove Successfully");
                     this.load_data_in_gridview();
 
@@ -215,5 +226,19 @@ namespace FYPManagementSytem
             projectAdvisor.Show();
         }
 
+        private void assignProjectsReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Project_Students_AdvisorBoard_Report_Preview det = new Project_Students_AdvisorBoard_Report_Preview();
+            this.Hide();
+            det.Show();
+        }
+
+        private void groupEvaluationReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Evaluations_Report_Preview det = new Evaluations_Report_Preview();
+            this.Hide();
+            det.Show();
+
+        }
     }
 }

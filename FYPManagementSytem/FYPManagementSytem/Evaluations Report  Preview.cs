@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,56 +10,42 @@ using System.Windows.Forms;
 
 namespace FYPManagementSytem
 {
-    public partial class Dashboard : Form
+    public partial class Evaluations_Report_Preview : Form
     {
-      
-        public Dashboard()
+        public Evaluations_Report_Preview()
         {
             InitializeComponent();
         }
-     
-        private void Dashboard_Load(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            DataBaseConnection.getInstance().conStr = "Data Source=UET\\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True";
-            try
-            {
+         
+        }
+        DataTable table = new DataTable();
+        private void Evaluations_Report_Preview_Load(object sender, EventArgs e)
+        {
+            evaluationDetailGridView.BorderStyle = BorderStyle.None;
+            evaluationDetailGridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            evaluationDetailGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            evaluationDetailGridView.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            evaluationDetailGridView.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+            evaluationDetailGridView.BackgroundColor = Color.White;
 
-                DataBaseConnection.getInstance().getConnection();
-                MessageBox.Show("Data base connected");
-                string queryStudent = "select count(Id) from Student";
-                int countStudent = DataBaseConnection.getInstance().getRowsCount(queryStudent);
+            evaluationDetailGridView.EnableHeadersVisualStyles = false;
+            evaluationDetailGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            evaluationDetailGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            evaluationDetailGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            string query = "select  GroupProject.GroupId,Project.Title,Evaluation.Name,Student.RegistrationNo,GroupEvaluation.ObtainedMarks,Evaluation.TotalMarks,Evaluation.TotalWeightage from GroupProject join GroupEvaluation on GroupProject.GroupId=GroupEvaluation.GroupId join Evaluation on GroupEvaluation.EvaluationId=Evaluation.Id join GroupStudent on GroupProject.GroupId=GroupStudent.GroupId join Project on Project.Id=GroupProject.ProjectId join Student on Student.Id=GroupStudent.StudentId";
+            var data = DataBaseConnection.getInstance().getAllData(query);
+            data.Fill(table);
+            evaluationDetailGridView.DataSource = table;
+        }
 
-                string queryProject = "select count(Id) from Project";
-                int countProject = DataBaseConnection.getInstance().getRowsCount(queryProject);
-
-                
-                string queryAdvisor = "select count(Id) from Advisor";
-                int countAdvisor = DataBaseConnection.getInstance().getRowsCount(queryAdvisor);
-                string queryGroup = "select count(Id) from [[Group]]]";
-             int countGroup = DataBaseConnection.getInstance().getRowsCount(queryGroup);
-
-                         string querySelectedProject = "select count(ProjectId) from GroupProject";
-                                int countSelectedProject = DataBaseConnection.getInstance().getRowsCount(querySelectedProject);
-
-                            string queryGroupEvaluation = "select distinct count(EvaluationId) from GroupEvaluation";
-                                int countGroupEvaluation = DataBaseConnection.getInstance().getRowsCount(queryGroupEvaluation);
-
-                lblCountStudent.Text = countStudent.ToString();
-                lblCountProject.Text = countProject.ToString();
-                lblCountAdvisor.Text = countAdvisor.ToString();
-                lblCountGroup.Text= countGroup.ToString();
-                lblCountSelectedProject.Text = countSelectedProject.ToString();
-                lblGroupEvaluation.Text = countGroupEvaluation.ToString();
-             //   MessageBox.Show(countGroup.ToString());
-              //  lblCountSelectedProject.Text = 
-
-
-                //    MessageBox.Show("project in db are " + count.ToString());
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error in " + ex.ToString());
-            }
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
 
         }
 
@@ -125,7 +110,7 @@ namespace FYPManagementSytem
             Add_Evaluation addEvaluation = new Add_Evaluation();
             this.Hide();
             addEvaluation.Show();
-                 
+
         }
 
         private void showGroupsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,7 +127,7 @@ namespace FYPManagementSytem
             createGroup.Show();
         }
 
-       private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showProjectGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Manage_Group_Project groupProject = new Manage_Group_Project();
             this.Hide();
@@ -163,21 +148,7 @@ namespace FYPManagementSytem
             groupEvaluation.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /*  DGVPrinter print = new DGVPrinter();
-              print.SubTitle = "subtitle";
-              print.Title = "title";
-              print.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-              print.Footer = "Fox Learn";
-           print.PrintDataGridView()*/
-         
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
+      
 
         private void advisorProjectStudentReportPreviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
