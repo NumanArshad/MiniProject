@@ -311,10 +311,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.groupEvaluationGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.groupEvaluationGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupEvaluationGridView.Location = new System.Drawing.Point(0, 136);
+            this.groupEvaluationGridView.Location = new System.Drawing.Point(0, 183);
             this.groupEvaluationGridView.Name = "groupEvaluationGridView";
             this.groupEvaluationGridView.ReadOnly = true;
-            this.groupEvaluationGridView.Size = new System.Drawing.Size(964, 340);
+            this.groupEvaluationGridView.Size = new System.Drawing.Size(964, 293);
             this.groupEvaluationGridView.TabIndex = 49;
             this.groupEvaluationGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.groupEvaluationGridView_CellContentClick);
             // 
@@ -351,10 +351,10 @@
             // txtBxObtainedMark
             // 
             this.txtBxObtainedMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxObtainedMark.Location = new System.Drawing.Point(649, 88);
+            this.txtBxObtainedMark.Location = new System.Drawing.Point(649, 92);
             this.txtBxObtainedMark.Multiline = true;
             this.txtBxObtainedMark.Name = "txtBxObtainedMark";
-            this.txtBxObtainedMark.Size = new System.Drawing.Size(148, 21);
+            this.txtBxObtainedMark.Size = new System.Drawing.Size(148, 20);
             this.txtBxObtainedMark.TabIndex = 64;
             // 
             // cmbBxEvaluation
@@ -380,13 +380,11 @@
             // lblform
             // 
             this.lblform.AutoSize = true;
-            this.lblform.BackColor = System.Drawing.Color.Transparent;
             this.lblform.ForeColor = System.Drawing.Color.Red;
-            this.lblform.Location = new System.Drawing.Point(123, 55);
+            this.lblform.Location = new System.Drawing.Point(209, 57);
             this.lblform.Name = "lblform";
-            this.lblform.Size = new System.Drawing.Size(35, 13);
+            this.lblform.Size = new System.Drawing.Size(0, 13);
             this.lblform.TabIndex = 67;
-            this.lblform.Text = "label2";
             // 
             // Manage_Group_Evaluations
             // 

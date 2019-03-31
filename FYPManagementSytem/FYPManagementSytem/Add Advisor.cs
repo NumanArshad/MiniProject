@@ -100,7 +100,7 @@ namespace FYPManagementSytem
                     {
                         if (txtBxSalary.Text == "")
                         {
-                            queryProject = string.Format("insert into Advisor(Id,Designation) values(1,(select Id from Lookup where Value='{0}'))", cmbBxDesignation.Text);
+                            queryProject = string.Format("insert into Advisor(Id,Designation) values(1,(select Id from Lookup where Value='{0}'),'{1}')", cmbBxDesignation.Text);
                         }
                         else
                         {

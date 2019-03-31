@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbBxProjects = new System.Windows.Forms.ComboBox();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmbBxAdvisors = new System.Windows.Forms.ComboBox();
@@ -71,7 +71,7 @@
             // 
             this.cmbBxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxProjects.FormattingEnabled = true;
-            this.cmbBxProjects.Location = new System.Drawing.Point(437, 82);
+            this.cmbBxProjects.Location = new System.Drawing.Point(337, 86);
             this.cmbBxProjects.Name = "cmbBxProjects";
             this.cmbBxProjects.Size = new System.Drawing.Size(100, 21);
             this.cmbBxProjects.TabIndex = 43;
@@ -80,9 +80,9 @@
             // 
             this.cmdSave.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdSave.Location = new System.Drawing.Point(812, 78);
+            this.cmdSave.Location = new System.Drawing.Point(735, 89);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(100, 32);
+            this.cmdSave.Size = new System.Drawing.Size(100, 33);
             this.cmdSave.TabIndex = 42;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = false;
@@ -92,7 +92,7 @@
             // 
             this.cmbBxAdvisors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxAdvisors.FormattingEnabled = true;
-            this.cmbBxAdvisors.Location = new System.Drawing.Point(192, 82);
+            this.cmbBxAdvisors.Location = new System.Drawing.Point(120, 86);
             this.cmbBxAdvisors.Name = "cmbBxAdvisors";
             this.cmbBxAdvisors.Size = new System.Drawing.Size(100, 21);
             this.cmbBxAdvisors.TabIndex = 40;
@@ -101,29 +101,29 @@
             // 
             this.projectAdvisorGridView.AllowUserToAddRows = false;
             this.projectAdvisorGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.projectAdvisorGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.projectAdvisorGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.projectAdvisorGridView.ColumnHeadersHeight = 25;
             this.projectAdvisorGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.projectAdvisorGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.projectAdvisorGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.projectAdvisorGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.projectAdvisorGridView.Location = new System.Drawing.Point(0, 140);
+            this.projectAdvisorGridView.Location = new System.Drawing.Point(0, 152);
             this.projectAdvisorGridView.Name = "projectAdvisorGridView";
             this.projectAdvisorGridView.ReadOnly = true;
-            this.projectAdvisorGridView.Size = new System.Drawing.Size(982, 305);
+            this.projectAdvisorGridView.Size = new System.Drawing.Size(982, 293);
             this.projectAdvisorGridView.TabIndex = 39;
             this.projectAdvisorGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.projectAdvisorGridView_CellContentClick);
             // 
@@ -131,7 +131,7 @@
             // 
             this.cmbBxAdvisorRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxAdvisorRoles.FormattingEnabled = true;
-            this.cmbBxAdvisorRoles.Location = new System.Drawing.Point(674, 85);
+            this.cmbBxAdvisorRoles.Location = new System.Drawing.Point(569, 89);
             this.cmbBxAdvisorRoles.Name = "cmbBxAdvisorRoles";
             this.cmbBxAdvisorRoles.Size = new System.Drawing.Size(100, 21);
             this.cmbBxAdvisorRoles.TabIndex = 45;
@@ -333,7 +333,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(77, 87);
+            this.label3.Location = new System.Drawing.Point(5, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 16);
             this.label3.TabIndex = 49;
@@ -343,7 +343,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(326, 87);
+            this.label1.Location = new System.Drawing.Point(226, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 16);
             this.label1.TabIndex = 50;
@@ -353,7 +353,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(570, 87);
+            this.label2.Location = new System.Drawing.Point(465, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 51;
@@ -362,13 +362,11 @@
             // lblform
             // 
             this.lblform.AutoSize = true;
-            this.lblform.BackColor = System.Drawing.Color.Transparent;
             this.lblform.ForeColor = System.Drawing.Color.Red;
-            this.lblform.Location = new System.Drawing.Point(70, 59);
+            this.lblform.Location = new System.Drawing.Point(117, 59);
             this.lblform.Name = "lblform";
-            this.lblform.Size = new System.Drawing.Size(35, 13);
-            this.lblform.TabIndex = 69;
-            this.lblform.Text = "label2";
+            this.lblform.Size = new System.Drawing.Size(0, 13);
+            this.lblform.TabIndex = 55;
             // 
             // Manage_Project__Advisors
             // 

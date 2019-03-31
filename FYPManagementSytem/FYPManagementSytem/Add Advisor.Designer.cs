@@ -73,7 +73,6 @@
             // 
             // cmbBxDesignation
             // 
-            this.cmbBxDesignation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBxDesignation.FormattingEnabled = true;
             this.cmbBxDesignation.Location = new System.Drawing.Point(223, 94);
             this.cmbBxDesignation.Name = "cmbBxDesignation";

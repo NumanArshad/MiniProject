@@ -34,6 +34,7 @@
             this.cmdCreateGroup = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblTitleError = new System.Windows.Forms.Label();
             this.lblform = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentGroupGridView)).BeginInit();
             this.SuspendLayout();
@@ -104,16 +105,23 @@
             this.label2.TabIndex = 51;
             this.label2.Text = "Search Student";
             // 
+            // lblTitleError
+            // 
+            this.lblTitleError.AutoSize = true;
+            this.lblTitleError.ForeColor = System.Drawing.Color.Red;
+            this.lblTitleError.Location = new System.Drawing.Point(330, 188);
+            this.lblTitleError.Name = "lblTitleError";
+            this.lblTitleError.Size = new System.Drawing.Size(0, 13);
+            this.lblTitleError.TabIndex = 52;
+            // 
             // lblform
             // 
             this.lblform.AutoSize = true;
-            this.lblform.BackColor = System.Drawing.Color.Transparent;
             this.lblform.ForeColor = System.Drawing.Color.Red;
-            this.lblform.Location = new System.Drawing.Point(335, 36);
+            this.lblform.Location = new System.Drawing.Point(346, 32);
             this.lblform.Name = "lblform";
-            this.lblform.Size = new System.Drawing.Size(35, 13);
-            this.lblform.TabIndex = 68;
-            this.lblform.Text = "label2";
+            this.lblform.Size = new System.Drawing.Size(0, 13);
+            this.lblform.TabIndex = 53;
             // 
             // Make_Group
             // 
@@ -122,6 +130,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(660, 388);
             this.Controls.Add(this.lblform);
+            this.Controls.Add(this.lblTitleError);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdCreateGroup);
@@ -144,6 +153,7 @@
         private System.Windows.Forms.Button cmdCreateGroup;
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTitleError;
         private System.Windows.Forms.Label lblform;
     }
 }

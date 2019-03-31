@@ -96,7 +96,7 @@ namespace FYPManagementSytem
             }
             if (txtBxContact.Text.Count()!=11 || !txtBxContact.Text.All(Char.IsDigit))
             {
-                lblContactError.Text = "Invalid Contact Number hint(03082345678)";
+                lblContactError.Text = "Invalid Contact Number hint(03047876543)";
                 invalid = true;
             }
             if (txtBxEmail.Text == "" || txtBxEmail.Text.Count() < 13 || !match.Success) 
@@ -106,7 +106,7 @@ namespace FYPManagementSytem
             }
             if (Convert.ToDateTime(dateTimePickerDOB.Value).Year>=DateTime.Now.Year-15)
             {
-                lblDOBError.Text = "Invalid date of Birth hint(less than 2004)";
+                lblDOBError.Text = "date of birth should be less than 2004";
                 invalid = true;
             }
             if(cmbBxGender.Text.Any(Char.IsDigit) || cmbBxGender.Text == "")
