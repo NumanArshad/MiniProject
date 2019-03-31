@@ -81,7 +81,7 @@ namespace FYPManagementSytem
                 !txtBxReg.Text.Split('-')[1].All(Char.IsLetter) || !txtBxReg.Text.Split('-')[2].All(Char.IsDigit) ||
             !txtBxReg.Text.Split('-')[1].All(Char.IsUpper))
             {
-                lblRegNoError.Text = "Invalid Registration Number";
+                lblRegNoError.Text = "Invalid Registration Number hint(2016-CS-311)";
                    invalid = true;
             }
             if(txtBxFirstName.Text.Any(Char.IsDigit) || txtBxFirstName.Text == "")
@@ -96,7 +96,7 @@ namespace FYPManagementSytem
             }
             if (txtBxContact.Text.Count()!=11 || !txtBxContact.Text.All(Char.IsDigit))
             {
-                lblContactError.Text = "Invalid Contact Number";
+                lblContactError.Text = "Invalid Contact Number hint(03082345678)";
                 invalid = true;
             }
             if (txtBxEmail.Text == "" || txtBxEmail.Text.Count() < 13 || !match.Success) 
@@ -104,9 +104,9 @@ namespace FYPManagementSytem
                 lblEmailError.Text = "Invalid Email";
                 invalid = true;
             }
-            if (Convert.ToDateTime(dateTimePickerDOB.Value)>=DateTime.Now)
+            if (Convert.ToDateTime(dateTimePickerDOB.Value).Year>=DateTime.Now.Year-15)
             {
-                lblDOBError.Text = "Invalid date of Birth";
+                lblDOBError.Text = "Invalid date of Birth hint(less than 2004)";
                 invalid = true;
             }
             if(cmbBxGender.Text.Any(Char.IsDigit) || cmbBxGender.Text == "")

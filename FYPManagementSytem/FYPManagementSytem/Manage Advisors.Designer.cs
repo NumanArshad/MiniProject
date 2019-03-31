@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.advisorsGridView = new System.Windows.Forms.DataGridView();
             this.advisorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectADataSet = new FYPManagementSytem.ProjectADataSet();
@@ -54,10 +54,10 @@
             this.manageProjectAdvisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageGroupEvaluationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.picBxAddNew = new System.Windows.Forms.PictureBox();
             this.assignProjectsReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picBxAddNew = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.advisorsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.advisorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectADataSet)).BeginInit();
@@ -69,29 +69,29 @@
             // 
             this.advisorsGridView.AllowUserToAddRows = false;
             this.advisorsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.advisorsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.advisorsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.advisorsGridView.ColumnHeadersHeight = 25;
             this.advisorsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.advisorsGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.advisorsGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.advisorsGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.advisorsGridView.Location = new System.Drawing.Point(0, 127);
+            this.advisorsGridView.Location = new System.Drawing.Point(0, 113);
             this.advisorsGridView.Name = "advisorsGridView";
             this.advisorsGridView.ReadOnly = true;
-            this.advisorsGridView.Size = new System.Drawing.Size(835, 244);
+            this.advisorsGridView.Size = new System.Drawing.Size(835, 258);
             this.advisorsGridView.TabIndex = 1;
             this.advisorsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advisorsGridView_CellContentClick);
             // 
@@ -264,6 +264,20 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
+            // assignProjectsReportPreviewToolStripMenuItem
+            // 
+            this.assignProjectsReportPreviewToolStripMenuItem.Name = "assignProjectsReportPreviewToolStripMenuItem";
+            this.assignProjectsReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.assignProjectsReportPreviewToolStripMenuItem.Text = "Assign Projects Report Preview";
+            this.assignProjectsReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.assignProjectsReportPreviewToolStripMenuItem_Click);
+            // 
+            // groupEvaluationReportPreviewToolStripMenuItem
+            // 
+            this.groupEvaluationReportPreviewToolStripMenuItem.Name = "groupEvaluationReportPreviewToolStripMenuItem";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+            this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
+            this.groupEvaluationReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.groupEvaluationReportPreviewToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -284,20 +298,6 @@
             this.picBxAddNew.TabIndex = 49;
             this.picBxAddNew.TabStop = false;
             this.picBxAddNew.Click += new System.EventHandler(this.picBxAddNew_Click);
-            // 
-            // assignProjectsReportPreviewToolStripMenuItem
-            // 
-            this.assignProjectsReportPreviewToolStripMenuItem.Name = "assignProjectsReportPreviewToolStripMenuItem";
-            this.assignProjectsReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.assignProjectsReportPreviewToolStripMenuItem.Text = "Assign Projects Report Preview";
-            this.assignProjectsReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.assignProjectsReportPreviewToolStripMenuItem_Click);
-            // 
-            // groupEvaluationReportPreviewToolStripMenuItem
-            // 
-            this.groupEvaluationReportPreviewToolStripMenuItem.Name = "groupEvaluationReportPreviewToolStripMenuItem";
-            this.groupEvaluationReportPreviewToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
-            this.groupEvaluationReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.groupEvaluationReportPreviewToolStripMenuItem_Click);
             // 
             // Manage_Advisors
             // 

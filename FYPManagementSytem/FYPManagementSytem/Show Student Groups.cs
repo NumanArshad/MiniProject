@@ -94,18 +94,27 @@ namespace FYPManagementSytem
                 if (dr == DialogResult.OK)
                 {
                     string selectStudent = row.Cells[1].Value.ToString();
+                    MessageBox.Show(selectStudent.Length.ToString());
                     string deleteStudentQuery = string.Format("delete GroupStudent where StudentId=(select Id from Student where RegistrationNo='{0}')", selectStudent);
                     DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
 
-                    //if group students delete then total group remove 
-                    string query = string.Format("select count(StudentId) from GroupStudent where StudentId='{0}'", selectStudent);
+                    //if group students delete then total group remove as well as assign project removed
+                    int groupId = (int)row.Cells[0].Value;
+                    string query = string.Format("select count(GroupId) from GroupStudent where GroupId='{0}'", groupId);
                     int countStudent = DataBaseConnection.getInstance().getRowsCount(query);
                     if (countStudent == 0)
                     {
-                        int groupId= (int)row.Cells[0].Value;
+                        MessageBox.Show("yes its zero");
+                      
+
+                        string deleteAssignGroupProject = string.Format("delete GroupProject where GroupId='{0}'", groupId);
+                        DataBaseConnection.getInstance().executeQuery(deleteAssignGroupProject);
+                        string deletenGroupEvaluation = string.Format("delete GroupEvaluation where GroupId='{0}'", groupId);
+                        DataBaseConnection.getInstance().executeQuery(deletenGroupEvaluation);
                         string deleteTotalGroup = string.Format("delete [[Group]]] where Id='{0}'", groupId);
                         DataBaseConnection.getInstance().executeQuery(deleteTotalGroup);
-                        MessageBox.Show("Total group remove as Group Empty");
+                      
+                        MessageBox.Show("Total group,its evaluations and assign project remove as Group Empty");
                     }
 
                     MessageBox.Show("Student Remove Successfully");
@@ -239,6 +248,20 @@ namespace FYPManagementSytem
             this.Hide();
             det.Show();
 
+        }
+
+        private void homeToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            this.Hide();
+            dashboard.Show();
+        }
+
+        private void manageGroupEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Evaluations groupEvaluation = new Manage_Group_Evaluations();
+            this.Hide();
+            groupEvaluation.Show();
         }
     }
 }

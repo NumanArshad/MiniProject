@@ -24,16 +24,17 @@ namespace FYPManagementSytem
             if (!is_editMode())
             {
                 
-                string queryGroup = string.Format("insert into [[Group]]](Created_On) values('{0}')", currentDateTime.Date);
-                DataBaseConnection.getInstance().executeQuery(queryGroup);
-                foreach (Student st in newGroupStudents)  //StudentGroupDL.getInstance().getStudentGroup()
-                {
-                    string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [[Group]]]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
-                    DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
+                    string queryGroup = string.Format("insert into [[Group]]](Created_On) values('{0}')", currentDateTime.Date);
+                    DataBaseConnection.getInstance().executeQuery(queryGroup);
+                    foreach (Student st in newGroupStudents)  //StudentGroupDL.getInstance().getStudentGroup()
+                    {
+                        string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [[Group]]]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
+                        DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
 
-                }
+                    }
 
-                MessageBox.Show("Insert success");
+                    MessageBox.Show("Student added in group  successfully");
+                
             }
             else
             {
@@ -50,7 +51,7 @@ namespace FYPManagementSytem
                //     MessageBox.Show(countStudentInGroup.ToString());
                          if (countStudentInGroup == 0)
                           {
-                              MessageBox.Show("new added in prev");
+                              MessageBox.Show("New Student added in this Group");
                               string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values('{0}','{1}','{2}','{3}')", GeneralID.selectedObjectid,st.Id, countStatusValue, currentDateTime);
                               DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
 
@@ -143,24 +144,60 @@ namespace FYPManagementSytem
                 bind.DataSource = newGroupStudents;//StudentGroupDL.getInstance().getStudentGroup();
                 studentGroupGridView.DataSource = bind;
             }
+
+            cmdCreateGroup.Enabled = false;
         }
 
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblform.Text = "";
+
+            if (txtBxSearchStudent.Text == "")
+            {
+                lblform.Text = "Please select student";
+                invalid = true;
+            }
+            else if(newGroupStudents.Count()>0)
+            {
+                MessageBox.Show("executing");
+                foreach(Student st in newGroupStudents)
+                {
+                    if (st.RegNo == txtBxSearchStudent.Text)
+                    {
+                        lblform.Text = "Student is already in this group";
+                        invalid = true;
+                        break;
+                    }
+
+                }
+            }
+            MessageBox.Show(invalid.ToString());
+            return invalid;
+        }
         DataTable table = new DataTable();
         private void cmdAddInGroup_Click(object sender, EventArgs e)
         {
-            string query = string.Format("select Id from Student where RegistrationNo='{0}'", txtBxSearchStudent.Text);
-            int studentId = DataBaseConnection.getInstance().getRowsCount(query);
-            Student student = new Student();
-            student.Id = studentId;
-            student.RegNo = txtBxSearchStudent.Text;
-            //   student.FirstName1 = null;
-            //      StudentGroupDL.getInstance().addStudent(student);
-          
-            newGroupStudents.Add(student);
-            BindingSource bind = new BindingSource();
-            bind.DataSource = newGroupStudents;//StudentGroupDL.getInstance().getStudentGroup();
-            studentGroupGridView.DataSource = bind;
-            txtBxSearchStudent.Clear();
+            MessageBox.Show(is_invalid().ToString());
+            if (!is_invalid())
+            {
+
+                string query = string.Format("select Id from Student where RegistrationNo='{0}'", txtBxSearchStudent.Text);
+                int studentId = DataBaseConnection.getInstance().getRowsCount(query);
+                Student student = new Student();
+                student.Id = studentId;
+                student.RegNo = txtBxSearchStudent.Text;
+                //   student.FirstName1 = null;
+                //      StudentGroupDL.getInstance().addStudent(student);
+
+                newGroupStudents.Add(student);
+                BindingSource bind = new BindingSource();
+                bind.DataSource = newGroupStudents;//StudentGroupDL.getInstance().getStudentGroup();
+                studentGroupGridView.DataSource = bind;
+                txtBxSearchStudent.Clear();
+                MessageBox.Show("Student added in group successfully");
+                cmdCreateGroup.Enabled = true;
+            }
         }
         private Boolean is_editMode()
         {

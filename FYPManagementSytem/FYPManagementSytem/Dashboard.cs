@@ -42,7 +42,7 @@ namespace FYPManagementSytem
                          string querySelectedProject = "select count(ProjectId) from GroupProject";
                                 int countSelectedProject = DataBaseConnection.getInstance().getRowsCount(querySelectedProject);
 
-                            string queryGroupEvaluation = "select distinct count(EvaluationId) from GroupEvaluation";
+                            string queryGroupEvaluation = "select count(EvaluationId) from GroupEvaluation";
                                 int countGroupEvaluation = DataBaseConnection.getInstance().getRowsCount(queryGroupEvaluation);
 
                 lblCountStudent.Text = countStudent.ToString();

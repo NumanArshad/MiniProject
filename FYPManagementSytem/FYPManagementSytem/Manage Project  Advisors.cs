@@ -31,26 +31,7 @@ namespace FYPManagementSytem
             projectAdvisorGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             projectAdvisorGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
-            string queryAdvisor = "select Id from Advisor";
-            var advisordata = DataBaseConnection.getInstance().readData(queryAdvisor);
-            while (advisordata.Read())
-            {
-                cmbBxAdvisors.Items.Add((int)advisordata.GetValue(0));
-            }
-
-            string queryTitle = "select Title from Project";
-            var titledata = DataBaseConnection.getInstance().readData(queryTitle);
-            while (titledata.Read())
-            {
-                cmbBxProjects.Items.Add(titledata.GetString(0));
-            }
-
-            string queryAdvisorRole = "select Value from Lookup where Category='ADVISOR_ROLE'";
-            var Rolesdata = DataBaseConnection.getInstance().readData(queryAdvisorRole);
-            while (Rolesdata.Read())
-            {
-                cmbBxAdvisorRoles.Items.Add(Rolesdata.GetString(0));
-            }
+           
             this.load_data_in_gridview();
 
             DataGridViewButtonColumn editbtn = new DataGridViewButtonColumn();
@@ -72,37 +53,141 @@ namespace FYPManagementSytem
         string previousProject;
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            if (!isEditMode)
+
+            if (!is_invalid())
             {
-                string insertQuery = string.Format("insert into ProjectAdvisor(AdvisorId,ProjectId,AdvisorRole,AssignmentDate) values('{0}',(select Id from Project where Title='{1}'),(select Id from Lookup where Value='{2}'),'{3}')", cmbBxAdvisors.Text, cmbBxProjects.Text, cmbBxAdvisorRoles.Text, DateTime.Now);
-                DataBaseConnection.getInstance().executeQuery(insertQuery);
+                if (!isEditMode)
+                {
+
+
+                    string insertQuery = string.Format("insert into ProjectAdvisor(AdvisorId,ProjectId,AdvisorRole,AssignmentDate) values('{0}',(select Id from Project where Title='{1}'),(select Id from Lookup where Value='{2}'),'{3}')", cmbBxAdvisors.Text, cmbBxProjects.Text, cmbBxAdvisorRoles.Text, DateTime.Now);
+                    DataBaseConnection.getInstance().executeQuery(insertQuery);
+
+
+                    MessageBox.Show("Advisor assign to project Successfully");
+                    this.load_data_in_gridview();
+                }
+
+
+
+                else
+                {
+                    /* string checkAlreadyExist = string.Format("select count(AdvisorId) from ProjectAdvisor where AdvisorId='{0}' and ProjectId=(select Id from Project where Title='{1}') and AdvisorRole=(select Id from Lookup where Value='{2}')", cmbBxAdvisors.Text, cmbBxProjects.Text, cmbBxAdvisorRoles.Text);
+                     int countExist = DataBaseConnection.getInstance().getRowsCount(checkAlreadyExist);
+                     if (countExist > 0)
+                     {
+                         MessageBox.Show("Already Exist");
+                     }
+                     else
+                     {*/
+                    MessageBox.Show("updating" + previousProject + "d" + "egr" + cmbBxAdvisorRoles.Text + "egr" + cmbBxAdvisors.Text);
+                    //  cmbBxAdvisors.Enabled = false;cmbBxAdvisorRoles.Enabled = false;
+                    string insertQuery = string.Format("update ProjectAdvisor set ProjectId=(select Id from Project where Title='{0}') where AdvisorId='{1}' and ProjectId=(select Id from Project where Title='{2}') and AdvisorRole=(select Id from Lookup where Value='{3}')", cmbBxProjects.Text, cmbBxAdvisors.Text, previousProject, cmbBxAdvisorRoles.Text);
+                    DataBaseConnection.getInstance().executeQuery(insertQuery);
+
+                    MessageBox.Show("update success");
+
+                    //  }
+                    cmbBxAdvisors.Enabled = true;
+                    this.load_data_in_gridview();
+                    isEditMode = false;
+
+
+                }
+            }
+        
+
+            
+
+
+        }
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblform.Text = "";
+            string queryCheckAdvisorExist = string.Format("select count(ProjectId) from ProjectAdvisor where AdvisorId='{0}' and ProjectId=(select Id from Project where Title='{1}')", cmbBxAdvisors.Text, cmbBxProjects.Text);
+            int countAdvisor = DataBaseConnection.getInstance().getRowsCount(queryCheckAdvisorExist);
+
+            string queryCheckRoleExist = string.Format("select count(ProjectId) from ProjectAdvisor where ProjectId=(select Id from Project where Title='{0}') and AdvisorRole=(select Id from Lookup where Value='{1}')",  cmbBxProjects.Text,cmbBxAdvisorRoles.Text);
+            int countRole = DataBaseConnection.getInstance().getRowsCount(queryCheckRoleExist);
+            Boolean isCurrentAdvisor = false;
+            if (isEditMode)
+            {
+
+                foreach (DataGridViewRow row in projectAdvisorGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString() == cmbBxAdvisors.Text && row.Cells[1].Value.ToString() == cmbBxProjects.Text && row.Cells[2].Value.ToString() == cmbBxAdvisorRoles.Text)
+                    {
+                        isCurrentAdvisor = true;
+                        break;
+                    }
+
+
+                }
+                if (!isCurrentAdvisor)
+                {
+                    if (countAdvisor > 0)
+                    {
+                        lblform.Text = "This advisor is already assign to this project";
+                        invalid = true;
+                    }
+                    else if (countRole > 0)
+                    {
+                        lblform.Text = "This project already has an advisor with same role";
+                        invalid = true;
+                    }
+                }
             }
             else
             {
-                string checkAlreadyExist = string.Format("select count(AdvisorId) from ProjectAdvisor where AdvisorId='{0}' and ProjectId=(select Id from Project where Title='{1}') and AdvisorRole=(select Id from Lookup where Value='{2}')", cmbBxAdvisors.Text, cmbBxProjects.Text, cmbBxAdvisorRoles.Text);
-                int countExist = DataBaseConnection.getInstance().getRowsCount(checkAlreadyExist);
-                if (countExist > 0)
+
+                if (cmbBxAdvisors.Text == "" || cmbBxProjects.Text == "" || cmbBxAdvisorRoles.Text == "")
                 {
-                    MessageBox.Show("Already Exist");
+                    lblform.Text = "Incomplete entry";
+                    invalid = true;
                 }
-                else
+                else if (countAdvisor > 0)
                 {
-                  MessageBox.Show("updating"+previousProject+"d"+ "egr" + cmbBxAdvisorRoles.Text+"egr"+cmbBxAdvisors.Text);
-                  //  cmbBxAdvisors.Enabled = false;cmbBxAdvisorRoles.Enabled = false;
-                    string insertQuery = string.Format("update ProjectAdvisor set ProjectId=(select Id from Project where Title='{0}') where AdvisorId='{1}' and ProjectId=(select Id from Project where Title='{2}') and AdvisorRole=(select Id from Lookup where Value='{3}')", cmbBxProjects.Text, cmbBxAdvisors.Text, previousProject, cmbBxAdvisorRoles.Text);
-                    DataBaseConnection.getInstance().executeQuery(insertQuery);
-                    MessageBox.Show("update success");
-                   
+                    lblform.Text = "This advisor is already assign to this project";
+                    invalid = true;
                 }
-                isEditMode = false;
+                else if (countRole > 0)
+                {
+                    lblform.Text = "This project already has an advisor with same role";
+                    invalid = true;
+                }
             }
 
-            this.load_data_in_gridview();
+            return invalid;
+
         }
         DataTable table = new DataTable();
         public void load_data_in_gridview()
         {
-            cmbBxAdvisors.Text = "";cmbBxProjects.Text = "";cmbBxAdvisorRoles.Text = "";
+            cmbBxAdvisors.Text = ""; cmbBxProjects.Text = ""; cmbBxAdvisorRoles.Text = "";
+            cmbBxAdvisors.Items.Clear();cmbBxProjects.Items.Clear();cmbBxAdvisorRoles.Items.Clear();
+
+            string queryAdvisor = "select Id from Advisor";
+            var advisordata = DataBaseConnection.getInstance().readData(queryAdvisor);
+            while (advisordata.Read())
+            {
+                cmbBxAdvisors.Items.Add((int)advisordata.GetValue(0));
+            }
+
+            string queryTitle = "select Title from Project";
+            var titledata = DataBaseConnection.getInstance().readData(queryTitle);
+            while (titledata.Read())
+            {
+                cmbBxProjects.Items.Add(titledata.GetString(0));
+            }
+
+            string queryAdvisorRole = "select Value from Lookup where Category='ADVISOR_ROLE'";
+            var Rolesdata = DataBaseConnection.getInstance().readData(queryAdvisorRole);
+            while (Rolesdata.Read())
+            {
+                cmbBxAdvisorRoles.Items.Add(Rolesdata.GetString(0));
+            }
+
             if (projectAdvisorGridView.Rows.Count > 0)
             {
                 table.Clear();
@@ -228,6 +313,7 @@ namespace FYPManagementSytem
                 cmbBxProjects.Text = row.Cells[1].Value.ToString();
                 previousProject= row.Cells[1].Value.ToString();
                 cmbBxAdvisorRoles.Text = row.Cells[2].Value.ToString();
+                cmbBxAdvisors.Enabled = false;
                 isEditMode = true;
 
             }
@@ -245,6 +331,7 @@ namespace FYPManagementSytem
                     DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
 
                     MessageBox.Show("Project Advisor deleted Successfully");
+                    cmbBxAdvisors.Enabled = true;
                     this.load_data_in_gridview();
 
                 }

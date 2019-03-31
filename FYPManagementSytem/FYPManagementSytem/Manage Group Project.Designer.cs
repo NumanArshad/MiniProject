@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmdSave = new System.Windows.Forms.Button();
-            this.cmbBxProjects = new System.Windows.Forms.ComboBox();
             this.groupProjectGridView = new System.Windows.Forms.DataGridView();
-            this.cmbBxGroups = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +58,9 @@
             this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblform = new System.Windows.Forms.Label();
+            this.cmbBxProjects = new System.Windows.Forms.ComboBox();
+            this.cmbBxGroups = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupProjectGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -68,59 +69,43 @@
             // 
             this.cmdSave.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.cmdSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cmdSave.Location = new System.Drawing.Point(396, 148);
+            this.cmdSave.Location = new System.Drawing.Point(658, 75);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(100, 33);
+            this.cmdSave.Size = new System.Drawing.Size(100, 27);
             this.cmdSave.TabIndex = 36;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = false;
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
-            // cmbBxProjects
-            // 
-            this.cmbBxProjects.FormattingEnabled = true;
-            this.cmbBxProjects.Location = new System.Drawing.Point(396, 66);
-            this.cmbBxProjects.Name = "cmbBxProjects";
-            this.cmbBxProjects.Size = new System.Drawing.Size(100, 21);
-            this.cmbBxProjects.TabIndex = 34;
-            // 
             // groupProjectGridView
             // 
             this.groupProjectGridView.AllowUserToAddRows = false;
             this.groupProjectGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.groupProjectGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.groupProjectGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.groupProjectGridView.ColumnHeadersHeight = 25;
             this.groupProjectGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.groupProjectGridView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.groupProjectGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.groupProjectGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupProjectGridView.Location = new System.Drawing.Point(0, 209);
+            this.groupProjectGridView.Location = new System.Drawing.Point(0, 129);
             this.groupProjectGridView.Name = "groupProjectGridView";
             this.groupProjectGridView.ReadOnly = true;
-            this.groupProjectGridView.Size = new System.Drawing.Size(948, 250);
+            this.groupProjectGridView.Size = new System.Drawing.Size(948, 330);
             this.groupProjectGridView.TabIndex = 33;
             this.groupProjectGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.groupProjectGridView_CellContentClick);
-            // 
-            // cmbBxGroups
-            // 
-            this.cmbBxGroups.FormattingEnabled = true;
-            this.cmbBxGroups.Location = new System.Drawing.Point(396, 103);
-            this.cmbBxGroups.Name = "cmbBxGroups";
-            this.cmbBxGroups.Size = new System.Drawing.Size(100, 21);
-            this.cmbBxGroups.TabIndex = 37;
             // 
             // menuStrip1
             // 
@@ -318,7 +303,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(272, 67);
+            this.label2.Location = new System.Drawing.Point(142, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 42;
@@ -328,11 +313,42 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(272, 103);
+            this.label1.Location = new System.Drawing.Point(392, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 16);
             this.label1.TabIndex = 42;
             this.label1.Text = "Select Group";
+            // 
+            // lblform
+            // 
+            this.lblform.AutoSize = true;
+            this.lblform.BackColor = System.Drawing.Color.Transparent;
+            this.lblform.ForeColor = System.Drawing.Color.Red;
+            this.lblform.Location = new System.Drawing.Point(142, 49);
+            this.lblform.Name = "lblform";
+            this.lblform.Size = new System.Drawing.Size(35, 13);
+            this.lblform.TabIndex = 68;
+            this.lblform.Text = "label2";
+            // 
+            // cmbBxProjects
+            // 
+            this.cmbBxProjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxProjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBxProjects.FormattingEnabled = true;
+            this.cmbBxProjects.Location = new System.Drawing.Point(268, 79);
+            this.cmbBxProjects.Name = "cmbBxProjects";
+            this.cmbBxProjects.Size = new System.Drawing.Size(108, 21);
+            this.cmbBxProjects.TabIndex = 69;
+            // 
+            // cmbBxGroups
+            // 
+            this.cmbBxGroups.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBxGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBxGroups.FormattingEnabled = true;
+            this.cmbBxGroups.Location = new System.Drawing.Point(517, 76);
+            this.cmbBxGroups.Name = "cmbBxGroups";
+            this.cmbBxGroups.Size = new System.Drawing.Size(108, 21);
+            this.cmbBxGroups.TabIndex = 70;
             // 
             // Manage_Group_Project
             // 
@@ -340,12 +356,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(948, 459);
+            this.Controls.Add(this.cmbBxGroups);
+            this.Controls.Add(this.cmbBxProjects);
+            this.Controls.Add(this.lblform);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.cmbBxGroups);
             this.Controls.Add(this.cmdSave);
-            this.Controls.Add(this.cmbBxProjects);
             this.Controls.Add(this.groupProjectGridView);
             this.Name = "Manage_Group_Project";
             this.Text = "Manage Group Project";
@@ -360,9 +377,7 @@
 
         #endregion
         private System.Windows.Forms.Button cmdSave;
-        private System.Windows.Forms.ComboBox cmbBxProjects;
         private System.Windows.Forms.DataGridView groupProjectGridView;
-        private System.Windows.Forms.ComboBox cmbBxGroups;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageStudentsToolStripMenuItem;
@@ -389,5 +404,8 @@
         private System.Windows.Forms.ToolStripMenuItem groupEvaluationReportPreviewToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblform;
+        private System.Windows.Forms.ComboBox cmbBxProjects;
+        private System.Windows.Forms.ComboBox cmbBxGroups;
     }
 }

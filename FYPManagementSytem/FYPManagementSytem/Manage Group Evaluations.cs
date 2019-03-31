@@ -52,8 +52,8 @@ namespace FYPManagementSytem
         }
         public void load_Data_In_GridView()
         {
-            cmbBxGroup.Text = ""; cmbBxEvaluation.Text = "";txtBxObtainedMark.Text = "";
-            cmbBxGroup.Items.Clear(); cmbBxEvaluation.Items.Clear();
+            
+            cmbBxGroup.Items.Clear(); cmbBxEvaluation.Items.Clear();txtBxObtainedMark.Text = "";
             string queryGroup = "select Id from [[Group]]]";
             var Groupdata = DataBaseConnection.getInstance().readData(queryGroup);
             while (Groupdata.Read())
@@ -80,20 +80,101 @@ namespace FYPManagementSytem
         string prevEvaluation;
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            if (!isEditMode)
+            if (!is_invalid())
             {
-                string queryInsert = string.Format("insert into GroupEvaluation(GroupId,EvaluationId,ObtainedMarks,EvaluationDate) values('{0}',(select Id from Evaluation where Name='{1}'),'{2}','{3}')", cmbBxGroup.Text, cmbBxEvaluation.Text, int.Parse(txtBxObtainedMark.Text), DateTime.Now);
-                DataBaseConnection.getInstance().executeQuery(queryInsert);
-                MessageBox.Show("added success");
+                if (!isEditMode)
+                {
+
+                    string queryInsert = string.Format("insert into GroupEvaluation(GroupId,EvaluationId,ObtainedMarks,EvaluationDate) values('{0}',(select Id from Evaluation where Name='{1}'),'{2}','{3}')", cmbBxGroup.Text, cmbBxEvaluation.Text, int.Parse(txtBxObtainedMark.Text), DateTime.Now);
+                    DataBaseConnection.getInstance().executeQuery(queryInsert);
+                    MessageBox.Show("added success");
+                    //   cmbBxGroup.Text = ""; cmbBxEvaluation.Text = ""; txtBxObtainedMark.Text = "";
+                    this.load_Data_In_GridView();
+                }
+
+                else
+                {
+                    string queryUpdate = string.Format("update GroupEvaluation set EvaluationId=(select Id from Evaluation where Name='{0}'),ObtainedMarks='{1}' where GroupId='{2}' and EvaluationId=(select Id from Evaluation where Name='{3}')", cmbBxEvaluation.Text, int.Parse(txtBxObtainedMark.Text), cmbBxGroup.Text, prevEvaluation);
+                    DataBaseConnection.getInstance().executeQuery(queryUpdate);
+                    MessageBox.Show("update success");
+                    //   cmbBxGroup.Text = ""; cmbBxEvaluation.Text = ""; txtBxObtainedMark.Text = "";
+                    isEditMode = false;
+                    cmbBxGroup.Enabled = true;
+                    this.load_Data_In_GridView();
+                }
             }
-            else
+            
+        }
+
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false, isCurrentAdvisor = false;
+            lblform.Text = "";
+            string checkCount = string.Format("select count(EvaluationId) from GroupEvaluation where GroupId='{0}' and EvaluationId=(select Id from Evaluation where Evaluation.Name='{1}')", cmbBxGroup.Text, cmbBxEvaluation.Text);
+            int countEvaluation = DataBaseConnection.getInstance().getRowsCount(checkCount);
+
+        try {
+                string getTotalMarks = string.Format("select TotalMarks from  Evaluation where Name='{0}'", cmbBxEvaluation.Text);
+                int totalMarks = DataBaseConnection.getInstance().getRowsCount(getTotalMarks);
+                //  MessageBox.Show(totalMarks.ToString());
+                if (isEditMode)
+                {
+                    foreach (DataGridViewRow row in groupEvaluationGridView.Rows)
+                    {
+                        if (row.Cells[0].Value.ToString() == cmbBxGroup.Text && row.Cells[1].Value.ToString() == cmbBxEvaluation.Text && row.Cells[2].Value.ToString() == txtBxObtainedMark.Text)
+                        {
+                            isCurrentAdvisor = true;
+                            break;
+
+                        }
+
+
+                    }
+                    if (!isCurrentAdvisor)
+                    {
+                        if (countEvaluation > 0)
+                        {
+
+                            lblform.Text = "Evaluation Already exist for that group"; invalid = true;
+                        }
+                        else if (!txtBxObtainedMark.Text.All(Char.IsDigit))
+                        {
+                            lblform.Text = "Marks should be integer"; invalid = true;
+                        }
+                        else if (int.Parse(txtBxObtainedMark.Text) > totalMarks)
+                        {
+                            lblform.Text = "Obtained Marks should not be greater than total marks"; invalid = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (countEvaluation > 0)
+                    {
+
+                        lblform.Text = "Evaluation Already exist for that group"; invalid = true;
+                    }
+                    else if (!txtBxObtainedMark.Text.All(Char.IsDigit))
+                    {
+                        lblform.Text = "Marks should be integer"; invalid = true;
+                    }
+                    else if (int.Parse(txtBxObtainedMark.Text) > totalMarks)
+                    {
+                        lblform.Text = "Obtained Marks should not be greater than total marks"; invalid = true;
+                    }
+                }
+            }
+            catch
             {
-                string queryUpdate = string.Format("update GroupEvaluation set EvaluationId=(select Id from Evaluation where Name='{0}'),ObtainedMarks='{1}' where GroupId='{2}' and EvaluationId=(select Id from Evaluation where Name='{3}')", cmbBxEvaluation.Text, int.Parse(txtBxObtainedMark.Text), cmbBxGroup.Text,prevEvaluation);
-                DataBaseConnection.getInstance().executeQuery(queryUpdate);
-                MessageBox.Show("update success");
-                isEditMode = false;
+             //   if (cmbBxGroup.Text == "" || cmbBxEvaluation.Text == "" || txtBxObtainedMark.Text == "")
+              //  {
+                    lblform.Text = "Your missing some entry"; invalid = true;
+
+               // }
+
             }
-            this.load_Data_In_GridView();
+           
+            return invalid;
         }
 
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,7 +284,7 @@ namespace FYPManagementSytem
 
             if (e.ColumnIndex == 4)
             {
-             
+                cmbBxGroup.Enabled = false;
                 cmbBxGroup.Text = row.Cells[0].Value.ToString();
                cmbBxEvaluation.Text = row.Cells[1].Value.ToString();
                 txtBxObtainedMark.Text= row.Cells[2].Value.ToString();
@@ -223,7 +304,7 @@ namespace FYPManagementSytem
                     string delGroupEvaluationQuery = string.Format("delete GroupEvaluation where GroupId='{0}' and EvaluationId=(select Id from Evaluation where Name='{1}')", selectId,selectedEvaluation);
                     DataBaseConnection.getInstance().executeQuery(delGroupEvaluationQuery);
                     MessageBox.Show("deleted successfully");
-
+                    cmbBxGroup.Enabled = true;
                     this.load_Data_In_GridView();
 
 

@@ -21,27 +21,41 @@ namespace FYPManagementSytem
         Boolean isEditMode = false;
         private void cmdSave_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(isEditMode.ToString());
             if (!isEditMode)
             {
-                string assignProjectQuery = string.Format("insert into GroupProject(ProjectId,GroupId,AssignmentDate) values((select Id from Project where Title='{0}'),'{1}','{2}')", cmbBxProjects.Text, cmbBxGroups.Text, Convert.ToDateTime(DateTime.Now));
-                DataBaseConnection.getInstance().executeQuery(assignProjectQuery);
+                if (!is_invalid())
+                {
+                    MessageBox.Show("insert");
+                    string assignProjectQuery = string.Format("insert into GroupProject(ProjectId,GroupId,AssignmentDate) values((select Id from Project where Title='{0}'),'{1}','{2}')", cmbBxProjects.Text, cmbBxGroups.Text, Convert.ToDateTime(DateTime.Now));
+                    DataBaseConnection.getInstance().executeQuery(assignProjectQuery);
 
 
-                string updateGroupStatuQuery = string.Format("update GroupStudent set Status='{0}' where GroupId='{1}'", 3, cmbBxGroups.Text);
-                DataBaseConnection.getInstance().executeQuery(updateGroupStatuQuery);
+                    string updateGroupStatuQuery = string.Format("update GroupStudent set Status='{0}' where GroupId='{1}'", 3, cmbBxGroups.Text);
+                    DataBaseConnection.getInstance().executeQuery(updateGroupStatuQuery);
+                    this.load_Data_In_GridView();
+
+                }
             }
             else
             {
+                MessageBox.Show("update");
                 string assignProjectQuery = string.Format("update GroupProject set ProjectId=(select Id from Project where Title='{0}') where GroupId='{1}'", cmbBxProjects.Text, cmbBxGroups.Text);
                 DataBaseConnection.getInstance().executeQuery(assignProjectQuery);
                 isEditMode = false;
-            }
+                this.load_Data_In_GridView();
 
-         
-            this.load_Data_In_GridView();
+            }
+           
+
+
+
+
+
         }
         public void load_Data_In_GridView()
         {
+           
             cmbBxProjects.Text = ""; cmbBxGroups.Text = "";
             cmbBxGroups.Items.Clear();cmbBxProjects.Items.Clear();
             string queryProject = "select Title from Project where not Exists(select * from GroupProject where ProjectId=Project.Id)";
@@ -66,8 +80,21 @@ namespace FYPManagementSytem
             var lst = DataBaseConnection.getInstance().getAllData(queryGroupProject);
             lst.Fill(table);
             groupProjectGridView.DataSource = table;
-        } 
+        }
 
+        private Boolean is_invalid()
+        {
+            Boolean invalid = false;
+            lblform.Text = "";
+         
+            if (cmbBxGroups.Text == "" || cmbBxProjects.Text == "")
+            {
+                lblform.Text = "Your missing some entry"; invalid = true;
+
+            }
+          
+         return invalid;
+        }
         private void Manage_Group_Project_Load(object sender, EventArgs e)
         {
             groupProjectGridView.BorderStyle = BorderStyle.None;
@@ -99,6 +126,7 @@ namespace FYPManagementSytem
             delbtn.Text = "Delete";
             delbtn.UseColumnTextForButtonValue = true;
             groupProjectGridView.Columns.Add(delbtn);
+          //  cmbBxGroups.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -113,13 +141,19 @@ namespace FYPManagementSytem
 
             if (e.ColumnIndex == 3)
             {
-                /* GeneralID.selectedObjectid = (int)row.Cells[0].Value;
-                 Add_Project add = new Add_Project();
-                 this.Hide();
-                 add.Show();*/
-                cmbBxProjects.Text = row.Cells[1].Value.ToString();
-                cmbBxGroups.Text = row.Cells[0].Value.ToString();
+                if (!cmbBxGroups.Items.Contains(row.Cells[0].Value.ToString()))
+                {
+                    cmbBxGroups.Items.Add(row.Cells[0].Value.ToString());
+                    cmbBxGroups.Text = row.Cells[0].Value.ToString();
+                }
 
+              if (!cmbBxProjects.Items.Contains(row.Cells[1].Value.ToString()))
+                {
+                    cmbBxProjects.Items.Add(row.Cells[1].Value.ToString());
+                    cmbBxProjects.Text = row.Cells[1].Value.ToString();
+                }
+               
+             
                 isEditMode =true;
 
             }
