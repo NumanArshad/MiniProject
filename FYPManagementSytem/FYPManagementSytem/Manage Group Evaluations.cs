@@ -55,7 +55,7 @@ namespace FYPManagementSytem
             cmbBxGroup.Text = ""; cmbBxEvaluation.Text = "";txtBxObtainedMark.Text = "";
             cmbBxGroup.Items.Clear(); cmbBxEvaluation.Items.Clear();
             cmbBxGroup.Enabled = true;
-            string queryGroup = "select Id from [[Group]]]";
+            string queryGroup = "select Id from [Group] where Exists(select * from GroupProject where GroupProject.GroupId=[Group].Id)";
             var Groupdata = DataBaseConnection.getInstance().readData(queryGroup);
             while (Groupdata.Read())
             {

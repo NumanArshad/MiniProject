@@ -54,7 +54,7 @@ namespace FYPManagementSytem
                 cmbBxProjects.Items.Add(titledata.GetString(0));
             }
 
-            string queryGroups = "select Id from [[Group]]] where not Exists(select * from GroupProject where GroupId=[[Group]]].Id)";
+            string queryGroups = "select Id from [Group] where not Exists(select * from GroupProject where GroupId=[Group].Id)";
             var groupdata = DataBaseConnection.getInstance().readData(queryGroups);
             while (groupdata.Read())
             {
@@ -157,6 +157,9 @@ namespace FYPManagementSytem
                     int selectId = (int)row.Cells[0].Value;
                     string deletegroupProjectQuery = string.Format("delete GroupProject where GroupId='{0}'", selectId);
                     DataBaseConnection.getInstance().executeQuery(deletegroupProjectQuery);
+
+                    string deletegroupEvalutionQuery = string.Format("delete GroupEvaluation where GroupId='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deletegroupEvalutionQuery);
 
                     MessageBox.Show("group Project deleted Successfully");
 

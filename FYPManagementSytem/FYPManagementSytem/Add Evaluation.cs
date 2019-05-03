@@ -99,7 +99,26 @@ namespace FYPManagementSytem
                 lblTotalWeightageError.Text = "Invalid  Total Weightage";
                 invalid = true;
             }
-           return invalid;
+            //else{
+            //    if (int.Parse(txtBxTotalMark.Text) != 10)
+            //    {
+            //        lblTotalMarksError.Text = "Total Marks should be 10";
+            //        invalid = true;
+            //    }
+            //    if (int.Parse(txtBxTotalWeightage.Text) != 20)
+            //    {
+            //        lblTotalWeightageError.Text = "Total Weightage should be 20";
+            //        invalid = true;
+            //    }
+            //}
+            
+          
+            if (!is_editMode() && existAlready())
+            {
+                invalid = true;
+
+            }
+            return invalid;
         }
        private Boolean existAlready()
         {

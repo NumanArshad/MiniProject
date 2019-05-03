@@ -24,11 +24,11 @@ namespace FYPManagementSytem
             if (!is_editMode())
             {
                 
-                string queryGroup = string.Format("insert into [[Group]]](Created_On) values('{0}')", currentDateTime.Date);
+                string queryGroup = string.Format("insert into [Group](Created_On) values('{0}')", currentDateTime.Date);
                 DataBaseConnection.getInstance().executeQuery(queryGroup);
                 foreach (Student st in newGroupStudents)  //StudentGroupDL.getInstance().getStudentGroup()
                 {
-                    string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [[Group]]]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
+                    string queryStudentGroup = string.Format("insert into GroupStudent(GroupId,StudentId,Status,AssignmentDate) values((select max(Id) from [Group]),'{0}','{1}','{2}')", st.Id, 4, currentDateTime);
                     DataBaseConnection.getInstance().executeQuery(queryStudentGroup);
 
                 }

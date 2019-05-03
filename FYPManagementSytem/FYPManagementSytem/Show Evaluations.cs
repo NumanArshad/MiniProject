@@ -81,8 +81,12 @@ namespace FYPManagementSytem
                 if (dr == DialogResult.OK)
                 {
                     int selectId = (int)row.Cells[0].Value;
+                    string deleteGroupEvaluationQuery = string.Format("delete GroupEvaluation where EvaluationId='{0}'", selectId);
+                    DataBaseConnection.getInstance().executeQuery(deleteGroupEvaluationQuery);
+                   
                     string deleteStudentQuery = string.Format("delete Evaluation where Id='{0}'", selectId);
                     DataBaseConnection.getInstance().executeQuery(deleteStudentQuery);
+
                     MessageBox.Show("Evaluation deleted Successfully");
                     this.load_data_in_gridview();
                 }

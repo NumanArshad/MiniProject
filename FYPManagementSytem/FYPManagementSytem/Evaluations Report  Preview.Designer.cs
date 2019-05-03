@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.evaluationDetailGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.advisorProjectStudentReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupEvaluationReportPreviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmdExportPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.evaluationDetailGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,24 +64,24 @@
             // 
             this.evaluationDetailGridView.AllowUserToAddRows = false;
             this.evaluationDetailGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.evaluationDetailGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.evaluationDetailGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.evaluationDetailGridView.ColumnHeadersHeight = 25;
             this.evaluationDetailGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.evaluationDetailGridView.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.evaluationDetailGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.evaluationDetailGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.evaluationDetailGridView.Location = new System.Drawing.Point(0, 92);
             this.evaluationDetailGridView.Name = "evaluationDetailGridView";
@@ -148,14 +149,14 @@
             // showProjectToolStripMenuItem
             // 
             this.showProjectToolStripMenuItem.Name = "showProjectToolStripMenuItem";
-            this.showProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showProjectToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.showProjectToolStripMenuItem.Text = "Show Projects";
             this.showProjectToolStripMenuItem.Click += new System.EventHandler(this.showProjectToolStripMenuItem_Click);
             // 
             // addProjectToolStripMenuItem
             // 
             this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.addProjectToolStripMenuItem.Text = "Add Project";
             this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
             // 
@@ -171,14 +172,14 @@
             // showAdvisorToolStripMenuItem
             // 
             this.showAdvisorToolStripMenuItem.Name = "showAdvisorToolStripMenuItem";
-            this.showAdvisorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showAdvisorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.showAdvisorToolStripMenuItem.Text = "Show Advisors";
             this.showAdvisorToolStripMenuItem.Click += new System.EventHandler(this.showAdvisorToolStripMenuItem_Click);
             // 
             // addAdvisorToolStripMenuItem
             // 
             this.addAdvisorToolStripMenuItem.Name = "addAdvisorToolStripMenuItem";
-            this.addAdvisorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addAdvisorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addAdvisorToolStripMenuItem.Text = "Add  Advisor";
             this.addAdvisorToolStripMenuItem.Click += new System.EventHandler(this.addAdvisorToolStripMenuItem_Click);
             // 
@@ -217,14 +218,14 @@
             // showGroupsToolStripMenuItem
             // 
             this.showGroupsToolStripMenuItem.Name = "showGroupsToolStripMenuItem";
-            this.showGroupsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showGroupsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.showGroupsToolStripMenuItem.Text = "Show Groups";
             this.showGroupsToolStripMenuItem.Click += new System.EventHandler(this.showGroupsToolStripMenuItem_Click);
             // 
             // createGroupToolStripMenuItem
             // 
             this.createGroupToolStripMenuItem.Name = "createGroupToolStripMenuItem";
-            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createGroupToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.createGroupToolStripMenuItem.Text = "Create Group";
             this.createGroupToolStripMenuItem.Click += new System.EventHandler(this.createGroupToolStripMenuItem_Click);
             // 
@@ -281,12 +282,26 @@
             this.groupEvaluationReportPreviewToolStripMenuItem.Text = "Group Evaluation Report Preview";
             this.groupEvaluationReportPreviewToolStripMenuItem.Click += new System.EventHandler(this.groupEvaluationReportPreviewToolStripMenuItem_Click);
             // 
+            // cmdExportPdf
+            // 
+            this.cmdExportPdf.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmdExportPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdExportPdf.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdExportPdf.Location = new System.Drawing.Point(756, 53);
+            this.cmdExportPdf.Name = "cmdExportPdf";
+            this.cmdExportPdf.Size = new System.Drawing.Size(112, 33);
+            this.cmdExportPdf.TabIndex = 55;
+            this.cmdExportPdf.Text = "Export to Pdf";
+            this.cmdExportPdf.UseVisualStyleBackColor = false;
+            this.cmdExportPdf.Click += new System.EventHandler(this.cmdExportPdf_Click);
+            // 
             // Evaluations_Report_Preview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(993, 439);
+            this.Controls.Add(this.cmdExportPdf);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.evaluationDetailGridView);
             this.Name = "Evaluations_Report_Preview";
@@ -326,5 +341,6 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem advisorProjectStudentReportPreviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem groupEvaluationReportPreviewToolStripMenuItem;
+        private System.Windows.Forms.Button cmdExportPdf;
     }
 }

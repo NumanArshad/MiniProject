@@ -21,7 +21,7 @@ namespace FYPManagementSytem
      
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            DataBaseConnection.getInstance().conStr = "Data Source=UET\\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True";
+            DataBaseConnection.getInstance().conStr = "Data Source=UET\\NUMANSQL;Initial Catalog=ProjectA;Integrated Security=True";
             try
             {
 
@@ -36,13 +36,13 @@ namespace FYPManagementSytem
                 
                 string queryAdvisor = "select count(Id) from Advisor";
                 int countAdvisor = DataBaseConnection.getInstance().getRowsCount(queryAdvisor);
-                string queryGroup = "select count(Id) from [[Group]]]";
+                string queryGroup = "select count(Id) from [Group]";
              int countGroup = DataBaseConnection.getInstance().getRowsCount(queryGroup);
 
                          string querySelectedProject = "select count(ProjectId) from GroupProject";
                                 int countSelectedProject = DataBaseConnection.getInstance().getRowsCount(querySelectedProject);
 
-                            string queryGroupEvaluation = "select distinct count(EvaluationId) from GroupEvaluation";
+                            string queryGroupEvaluation = "select  count(distinct GroupId) from GroupEvaluation";
                                 int countGroupEvaluation = DataBaseConnection.getInstance().getRowsCount(queryGroupEvaluation);
 
                 lblCountStudent.Text = countStudent.ToString();
@@ -51,11 +51,7 @@ namespace FYPManagementSytem
                 lblCountGroup.Text= countGroup.ToString();
                 lblCountSelectedProject.Text = countSelectedProject.ToString();
                 lblGroupEvaluation.Text = countGroupEvaluation.ToString();
-             //   MessageBox.Show(countGroup.ToString());
-              //  lblCountSelectedProject.Text = 
-
-
-                //    MessageBox.Show("project in db are " + count.ToString());
+        
             }
             catch(Exception ex)
             {

@@ -107,7 +107,7 @@ namespace FYPManagementSytem
                         DataBaseConnection.getInstance().executeQuery(deleteGroupProject);
                         string deleteGroupEvaluation = string.Format("delete GroupEvaluation where GroupId='{0}'", groupId);
                         DataBaseConnection.getInstance().executeQuery(deleteGroupEvaluation);
-                        string deleteTotalGroup = string.Format("delete [[Group]]] where Id='{0}'", groupId);
+                        string deleteTotalGroup = string.Format("delete [Group] where Id='{0}'", groupId);
                         DataBaseConnection.getInstance().executeQuery(deleteTotalGroup);
                         MessageBox.Show("Total group remove as Group Empty");
                     }
@@ -248,6 +248,13 @@ namespace FYPManagementSytem
             Dashboard dashboard = new Dashboard();
             this.Hide();
             dashboard.Show();
+        }
+
+        private void manageGroupEvaluationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Manage_Group_Evaluations groupEvaluation = new Manage_Group_Evaluations();
+            this.Hide();
+            groupEvaluation.Show();
         }
     }
 }
